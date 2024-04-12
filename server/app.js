@@ -11,7 +11,12 @@ const app = express();
 const __dirname__ = dirname(fileURLToPath(import.meta.url));
 
 // ! middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: ['https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/'],
+    methods: ['POST', 'GET', 'PUT', 'DELETE'],
+  })
+);
 app.use(express.json());
 
 app.use(

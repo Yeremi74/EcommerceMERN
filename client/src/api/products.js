@@ -2,15 +2,21 @@ import axios from 'axios';
 
 // !GET
 export const getProductsRequest = async () =>
-  await axios.get('http://localhost:5000/api/products');
+  await axios.get(
+    'https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/products'
+  );
 
 // !DELETE
 export const deleteRequest = async (params, id) =>
-  await axios.delete(`http://localhost:5000/api/${params}/${id}`);
+  await axios.delete(
+    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`
+  );
 
 // !GET
 export const getUniqueProductRequest = async (params, id) =>
-  await axios.get(`http://localhost:5000/api/${params}/${id}`);
+  await axios.get(
+    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`
+  );
 
 // !POST
 export const createRequest = async (product, id) => {
@@ -21,16 +27,20 @@ export const createRequest = async (product, id) => {
     form.append(key, product[key]);
   }
 
-  return await axios.post(`http://localhost:5000/api/${id}`, form, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  return await axios.post(
+    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${id}`,
+    form,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+  );
 };
 
 export const filterRequest = async (cat, collec, sort) => {
   return await axios.get(
-    `http://localhost:5000/api/products/${cat}/${collec}/${sort}`
+    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/products/${cat}/${collec}/${sort}`
   );
 };
 
@@ -57,11 +67,15 @@ export const updateProductRequest = async (params, id, newFields) => {
       form2.append(key, newFields[key]);
     }
   }
-  return await axios.put(`http://localhost:5000/api/${params}/${id}`, form2, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  return await axios.put(
+    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`,
+    form2,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+  );
 };
 // export const updateProductRequest = async (params, id, newFields) => {
 //   const form2 = new FormData();
@@ -70,7 +84,7 @@ export const updateProductRequest = async (params, id, newFields) => {
 //     form2.append(key, newFields[key]);
 //   }
 
-//   return await axios.put(`http://localhost:5000/api/${params}/${id}`, form2, {
+//   return await axios.put(`https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`, form2, {
 //     headers: {
 //       'Content-Type': 'multipart/form-data',
 //     },
