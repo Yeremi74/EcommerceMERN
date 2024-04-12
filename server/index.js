@@ -3,5 +3,5 @@ import { PORT } from './config.js';
 import app from './app.js';
 
 connectDB();
-app.listen(PORT);
-console.log(`server is running in port`, PORT);
+app.listen(3001);
+console.log(`server is running in port`, 3001);
