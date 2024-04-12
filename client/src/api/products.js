@@ -2,20 +2,18 @@ import axios from 'axios';
 
 // !GET
 export const getProductsRequest = async () =>
-  await axios.get(
-    'https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/products'
-  );
+  await axios.get('https://backend-ecommercemern.onrender.com/api/products');
 
 // !DELETE
 export const deleteRequest = async (params, id) =>
   await axios.delete(
-    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`
+    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
   );
 
 // !GET
 export const getUniqueProductRequest = async (params, id) =>
   await axios.get(
-    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`
+    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
   );
 
 // !POST
@@ -28,7 +26,7 @@ export const createRequest = async (product, id) => {
   }
 
   return await axios.post(
-    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${id}`,
+    `https://backend-ecommercemern.onrender.com/api/${id}`,
     form,
     {
       headers: {
@@ -40,7 +38,7 @@ export const createRequest = async (product, id) => {
 
 export const filterRequest = async (cat, collec, sort) => {
   return await axios.get(
-    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/products/${cat}/${collec}/${sort}`
+    `https://backend-ecommercemern.onrender.com/api/products/${cat}/${collec}/${sort}`
   );
 };
 
@@ -68,7 +66,7 @@ export const updateProductRequest = async (params, id, newFields) => {
     }
   }
   return await axios.put(
-    `https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`,
+    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`,
     form2,
     {
       headers: {
@@ -84,7 +82,7 @@ export const updateProductRequest = async (params, id, newFields) => {
 //     form2.append(key, newFields[key]);
 //   }
 
-//   return await axios.put(`https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/api/${params}/${id}`, form2, {
+//   return await axios.put(`https://backend-ecommercemern.onrender.com/api/${params}/${id}`, form2, {
 //     headers: {
 //       'Content-Type': 'multipart/form-data',
 //     },

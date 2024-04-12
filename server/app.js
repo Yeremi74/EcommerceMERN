@@ -16,7 +16,7 @@ const __dirname__ = dirname(fileURLToPath(import.meta.url));
 
 // ! middlewares
 const corsConfig = {
-  origin: '*',
+  origin: 'https://frontend-ecommercemern.onrender.com/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credential: true,
 };
