@@ -1,17 +1,17 @@
-// import express from 'express';
+import express from 'express';
 import postsRoutes from './routes/products.routes.js';
 import categoryRoutes from './routes/categories.routes.js';
 import collectionRoutes from './routes/Collection.routes.js';
 import fileUpload from 'express-fileupload';
-// import cors from 'cors';
+import cors from 'cors';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
-const express = require('express');
-const cors = require('cors');
-const app = express();
-
+// const express = require('express');
+// const cors = require('cors');
 // const app = express();
+
+const app = express();
 const __dirname__ = dirname(fileURLToPath(import.meta.url));
 
 // ! middlewares
