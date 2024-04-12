@@ -38,11 +38,11 @@ app.use(postsRoutes);
 app.use(categoryRoutes);
 app.use(collectionRoutes);
 
-console.log(__dirname__);
-app.use(express.static(join(__dirname__, '../client/dist')));
+// console.log(__dirname__);
+// app.use(express.static(join(__dirname__, '../client/dist')));
 
-app.get('*', (req, res) => {
-  res.sendFile(join(__dirname__, '../client/dist/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(join(__dirname__, '../client/dist/index.html'));
+// });
 
 export default app;
