@@ -6,6 +6,7 @@ import fileUpload from 'express-fileupload';
 import cors from 'cors';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { FRONTEND_URL } from './config.js';
 
 // const express = require('express');
 // const cors = require('cors');
@@ -16,10 +17,7 @@ const __dirname__ = dirname(fileURLToPath(import.meta.url));
 
 // ! middlewares
 const corsConfig = {
-  origin: [
-    // 'https://frontend-ecommercemern.onrender.com/',
-    'http://localhost:5173/',
-  ],
+  origin: FRONTEND_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credential: true,
 };

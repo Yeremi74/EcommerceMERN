@@ -2,19 +2,15 @@ import axios from 'axios';
 
 // !GET
 export const getProductsRequest = async () =>
-  await axios.get('https://backend-ecommercemern.onrender.com/api/products');
+  await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products`);
 
 // !DELETE
 export const deleteRequest = async (params, id) =>
-  await axios.delete(
-    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
-  );
+  await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/${params}/${id}`);
 
 // !GET
 export const getUniqueProductRequest = async (params, id) =>
-  await axios.get(
-    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
-  );
+  await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/${params}/${id}`);
 
 // !POST
 export const createRequest = async (product, id) => {
@@ -26,7 +22,7 @@ export const createRequest = async (product, id) => {
   }
 
   return await axios.post(
-    `https://backend-ecommercemern.onrender.com/api/${id}`,
+    `${import.meta.env.VITE_BACKEND_URL}/api/${id}`,
     form,
     {
       headers: {
@@ -38,7 +34,7 @@ export const createRequest = async (product, id) => {
 
 export const filterRequest = async (cat, collec, sort) => {
   return await axios.get(
-    `https://backend-ecommercemern.onrender.com/api/products/${cat}/${collec}/${sort}`
+    `${import.meta.env.VITE_BACKEND_URL}/api/products/${cat}/${collec}/${sort}`
   );
 };
 
@@ -66,7 +62,7 @@ export const updateProductRequest = async (params, id, newFields) => {
     }
   }
   return await axios.put(
-    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`,
+    `${import.meta.env.VITE_BACKEND_URL}/api/${params}/${id}`,
     form2,
     {
       headers: {
@@ -82,7 +78,7 @@ export const updateProductRequest = async (params, id, newFields) => {
 //     form2.append(key, newFields[key]);
 //   }
 
-//   return await axios.put(`https://backend-ecommercemern.onrender.com/api/${params}/${id}`, form2, {
+//   return await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/${params}/${id}`, form2, {
 //     headers: {
 //       'Content-Type': 'multipart/form-data',
 //     },

@@ -1,4 +1,4 @@
 import axios from 'axios';
 
 export const getCategoryRequest = async () =>
-  await axios.get('https://backend-ecommercemern.onrender.com/api/category');
+  await axios.get('${BACKEND_URL}api/category');
