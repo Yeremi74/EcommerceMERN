@@ -14,7 +14,7 @@ const __dirname__ = dirname(fileURLToPath(import.meta.url));
 app.use(
   cors({
     origin: [
-      'https://ecommerce-mern-frontend-bj785805l-yeremi74s-projects.vercel.app/',
+      // 'https://ecommerce-mern-frontend-bj785805l-yeremi74s-projects.vercel.app/',
     ],
     methods: ['POST', 'GET', 'PUT', 'DELETE'],
   })
