@@ -61,16 +61,3 @@ export const updateProductRequest = async (params, id, newFields) => {
     },
   });
 };
-// export const updateProductRequest = async (params, id, newFields) => {
-//   const form2 = new FormData();
-
-//   for (let key in newFields) {
-//     form2.append(key, newFields[key]);
-//   }
-
-//   return await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/${params}/${id}`, form2, {
-//     headers: {
-//       'Content-Type': 'multipart/form-data',
-//     },
-//   });
-// };
