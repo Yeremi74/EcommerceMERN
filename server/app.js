@@ -18,8 +18,10 @@ const __dirname__ = dirname(fileURLToPath(import.meta.url));
 const corsConfig = {
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  Credential: true,
+  credential: true,
 };
+
+app.options('', cors(corsConfig));
 app.use(cors(corsConfig));
 
 app.use(express.json());
