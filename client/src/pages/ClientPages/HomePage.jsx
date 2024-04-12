@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import myImage from '../../assets/428be75be09645f9b22178469ed2a718.mp4';
 import { useEcommerceContext } from '../../context/Context';
 import GridArticle from '../../components/clientComponents/GridArticle';
