@@ -13,7 +13,9 @@ const __dirname__ = dirname(fileURLToPath(import.meta.url));
 // ! middlewares
 app.use(
   cors({
-    origin: ['https://ecommerce-mern-bim8mkj12-yeremi74s-projects.vercel.app/'],
+    origin: [
+      'https://ecommerce-mern-frontend-bj785805l-yeremi74s-projects.vercel.app/',
+    ],
     methods: ['POST', 'GET', 'PUT', 'DELETE'],
   })
 );
