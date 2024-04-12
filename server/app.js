@@ -18,7 +18,7 @@ const __dirname__ = dirname(fileURLToPath(import.meta.url));
 const corsConfig = {
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credential: true,
+  Credential: true,
 };
 app.use(cors(corsConfig));
 
