@@ -1,5 +1,6 @@
 import { deleteImageProduct, uploadImageProduct } from '../libs/cloudinary.js';
-import Category from '../models/category.js';
+// import Category from '../models/category.js';
+import Category from '../models/Category.js';
 import fs from 'fs-extra';
 const folder = 'categories';
 export const getCategories = async (req, res) => {
