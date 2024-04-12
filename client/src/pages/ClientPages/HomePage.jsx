@@ -46,11 +46,11 @@ const HomePage = () => {
       </header>
       <section>
         <GridArticle products={all} title='new in' />
-        {/* <CollectionsMain /> */}
-        {/* <GridArticle products={pantalones} title='pantalones' /> */}
-        {/* <ImageMainSection /> */}
-        {/* <GridArticle products={hoodies} title='hoodies' /> */}
-        {/* <DraggableCarrousel /> */}
+        <CollectionsMain />
+        <GridArticle products={pantalones} title='pantalones' />
+        <ImageMainSection />
+        <GridArticle products={hoodies} title='hoodies' />
+        <DraggableCarrousel />
       </section>
     </div>
   );
