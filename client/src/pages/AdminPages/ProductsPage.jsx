@@ -10,6 +10,7 @@ const ProductsPage = () => {
   const [categoryOption, setCategory] = useState('all');
   const [collection, setCollection] = useState('all');
   const [sort, setSort] = useState(-1);
+  const [hola, setHola] = useState([]);
   // console.log(params);
 
   const {
@@ -25,16 +26,15 @@ const ProductsPage = () => {
   } = useEcommerceContext();
 
   const data = useEcommerceContext();
-  // console.log(products);
-  // console.log(data);
-  const dataPosition = data[params.id.toLowerCase()];
-  // console.log(data[params.id.toLowerCase()]);
-  // console.log(dataPosition);
 
   useEffect(() => {
     const objFunc = async () => {
       if (params.id === 'products') {
-        return filterProduct(categoryOption, collection, sort);
+        const res = await filterProduct(categoryOption, collection, sort);
+        // console.log(res + 'return filter');
+        setHola(data[params.id.toLowerCase()]);
+        // console.log(hola);
+        return;
       }
 
       if (params.id === 'Collections') {
@@ -46,9 +46,7 @@ const ProductsPage = () => {
       }
     };
     objFunc();
-    console.log(params.id);
-    console.log(data[params.id.toLowerCase()]);
-  }, [categoryOption, collection]);
+  }, [categoryOption, collection, hola]);
 
   // console.log(darkMode);
   return (
@@ -73,7 +71,7 @@ const ProductsPage = () => {
           </header>
 
           <TablePanelAdmin
-            data={dataPosition}
+            data={hola}
             setCategory={setCategory}
             setCollection={setCollection}
             setSort={setSort}
