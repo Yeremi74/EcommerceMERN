@@ -1,3 +1,3 @@
 import axios from 'axios';
 export const getCollectionRequest = async () =>
-  await axios.get(`https://backend-ecommercemern.onrender.com/api/collections`);
+  await axios.get(`http://localhost:3001/api/collections`);

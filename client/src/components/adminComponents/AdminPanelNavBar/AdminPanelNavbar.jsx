@@ -5,6 +5,12 @@ const AdminPanelNavbar = () => {
     <div className='flex flex-col bg-gray-700 h-screen w-44 fixed text-white text-3xl text-center justify-around items-center'>
       <Link
         className='hover:bg-gray-400 transition-all w-fit p-2 rounded-md'
+        to='/'
+      >
+        Inicio
+      </Link>
+      <Link
+        className='hover:bg-gray-400 transition-all w-fit p-2 rounded-md'
         to='/admin/products'
       >
         Products

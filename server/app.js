@@ -6,7 +6,6 @@ import fileUpload from 'express-fileupload';
 import cors from 'cors';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { FRONTEND_URL } from './config.js';
 
 // const express = require('express');
 // const cors = require('cors');

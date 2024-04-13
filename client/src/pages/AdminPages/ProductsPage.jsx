@@ -46,7 +46,9 @@ const ProductsPage = () => {
       }
     };
     objFunc();
-  }, [getProducts, getCollections, getCategory, params.id]);
+    console.log(params.id);
+    console.log(data[params.id.toLowerCase()]);
+  }, [categoryOption, collection]);
 
   // console.log(darkMode);
   return (
@@ -60,7 +62,7 @@ const ProductsPage = () => {
             <h1 className='font-bold'>{params.id}</h1>
 
             <div className=' flex flex-col items-center gap-4 '>
-              <DarkModeButton />
+              {/* <DarkModeButton /> */}
               <Link
                 to={`/admin/create/${params.id}`}
                 className='dark:bg-gray-700 text-white p-2 rounded-md bg-gray_custom-300 hover:bg-gray_custom-400'
