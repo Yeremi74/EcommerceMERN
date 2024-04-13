@@ -11,6 +11,7 @@ const ProductsPage = () => {
   const [collection, setCollection] = useState('all');
   const [sort, setSort] = useState(-1);
   const [hola, setHola] = useState([]);
+  const [ayuda, setAayuda] = useState([]);
   // console.log(params);
 
   const {
@@ -26,31 +27,40 @@ const ProductsPage = () => {
   } = useEcommerceContext();
 
   const data = useEcommerceContext();
-  console.log(data['category']);
+
   // console.log(data[params.id.toLowerCase()]);
   useEffect(() => {
-    const objFunc = async () => {
+    const asyncFunc = async () => {
       if (params.id === 'products') {
         const res = await filterProduct(categoryOption, collection, sort);
-        // console.log(res + 'return filter');
-        setHola(data['products']);
+        setAayuda(res);
+        console.log(ayuda);
+
+        setHola(res);
         // console.log(hola);
-        return;
       }
 
       if (params.id === 'Collections') {
-        // console.log(`es ${params.id}`);
         setHola(data['collections']);
         return getCollections();
       }
+
       if (params.id === 'Category') {
         setHola(data['category']);
         return getCategory();
       }
     };
-    objFunc();
-    // console.log(hola);
-  }, [categoryOption, collection, hola, params.id, collections, category]);
+
+    asyncFunc();
+  }, [
+    params.id,
+    products,
+    category,
+    collections,
+    categoryOption,
+    collection,
+    sort,
+  ]);
 
   // console.log(darkMode);
   return (

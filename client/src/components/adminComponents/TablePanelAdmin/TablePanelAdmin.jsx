@@ -28,11 +28,13 @@ const TablePanelAdmin = ({
   useEffect(() => {
     getCategory();
     getCollections();
+    // console.log(sort);
   }, []);
   // console.log(data[0]);
   // console.log(collection);
 
   const handlePrice = () => {
+    console.log(sort);
     if (sort === -1) {
       setSort(1);
       return;

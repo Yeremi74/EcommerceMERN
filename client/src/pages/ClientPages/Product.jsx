@@ -20,14 +20,13 @@ const Product = () => {
       setProduct(res.data);
       const allProducts = await getProducts();
       setAllProduct(allProducts);
-
       const categoryFilterReq = await filterProduct(
         res.data.category,
         'all',
         1
       );
       setCategoryFilter(categoryFilterReq);
-      //   console.log(categoryFilter);
+      console.log(categoryFilter);
     };
     objFunc();
   }, [

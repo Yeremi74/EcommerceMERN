@@ -40,7 +40,7 @@ const Row = ({ article, opened, setOpened, params }) => {
             </button>
             <button
               className='p-1 uppercase bg-green-500 hover:bg-green-700'
-              onClick={() => toast.dismiss(t.id)}
+              onClick={() => toast.dismiss(article._id)}
             >
               Cancelar
             </button>
