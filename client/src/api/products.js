@@ -1,15 +1,19 @@
 import axios from 'axios';
 // !GET
 export const getProductsRequest = async () =>
-  await axios.get(`http://localhost:3001/api/products`);
+  await axios.get(`https://backend-ecommercemern.onrender.com/api/products`);
 
 // !DELETE
 export const deleteRequest = async (params, id) =>
-  await axios.delete(`http://localhost:3001/api/${params}/${id}`);
+  await axios.delete(
+    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
+  );
 
 // !GET
 export const getUniqueProductRequest = async (params, id) =>
-  await axios.get(`http://localhost:3001/api/${params}/${id}`);
+  await axios.get(
+    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
+  );
 
 // !POST
 export const createRequest = async (product, id) => {
@@ -20,16 +24,20 @@ export const createRequest = async (product, id) => {
     form.append(key, product[key]);
   }
 
-  return await axios.post(`http://localhost:3001/api/${id}`, form, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  return await axios.post(
+    `https://backend-ecommercemern.onrender.com/api/${id}`,
+    form,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+  );
 };
 
 export const filterRequest = async (cat, collec, sort) => {
   return await axios.get(
-    `http://localhost:3001/api/products/${cat}/${collec}/${sort}`
+    `https://backend-ecommercemern.onrender.com/api/products/${cat}/${collec}/${sort}`
   );
 };
 
@@ -56,9 +64,13 @@ export const updateProductRequest = async (params, id, newFields) => {
       form2.append(key, newFields[key]);
     }
   }
-  return await axios.put(`http://localhost:3001/api/${params}/${id}`, form2, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  return await axios.put(
+    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`,
+    form2,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+  );
 };
