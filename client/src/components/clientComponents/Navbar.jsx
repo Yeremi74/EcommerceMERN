@@ -51,7 +51,7 @@ const Navbar = () => {
               stores
             </Link>
             <Link
-              to='/admin'
+              to='/admin/products'
               className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold'
             >
               about us
