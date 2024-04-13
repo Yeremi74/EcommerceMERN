@@ -21,6 +21,8 @@ const ProductsForm = () => {
     category,
     collections,
     getCollections,
+    estado,
+    setEstado,
   } = useEcommerceContext();
   const navigate = useNavigate();
 
@@ -565,6 +567,12 @@ const ProductsForm = () => {
             <button
               type='submit'
               disabled={loading}
+              onClick={() => {
+                setEstado(true);
+                setTimeout(() => {
+                  setEstado(false);
+                }, 1000);
+              }}
               className={`my-0 m-auto dark:bg-gray-800 block p-3 rounded-md hover:dark:bg-gray-900 transition-all disabled:cursor-not-allowed bg-gray_custom-200 text-white hover:bg-gray_custom-300
                 `}
             >

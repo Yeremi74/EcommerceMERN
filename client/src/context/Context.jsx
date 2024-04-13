@@ -29,6 +29,8 @@ export const ContextProvider = ({ children }) => {
     return storedDarkMode ? JSON.parse(storedDarkMode) : false;
   });
 
+  const [estado, setEstado] = useState(false);
+
   const getProducts = async () => {
     const res = await getProductsRequest();
     setProducts(res.data);
@@ -96,6 +98,8 @@ export const ContextProvider = ({ children }) => {
         filterProduct,
         isScrollDisabled,
         setIsScrollDisabled,
+        estado,
+        setEstado,
       }}
     >
       {children}

@@ -10,14 +10,14 @@ const HomePage = () => {
   const { getProducts, filterProduct } = useEcommerceContext();
   const [all, setAll] = useState([]);
   const [pantalones, setPantalones] = useState([]);
-  const [hoodies, setHoodies] = useState([]);
+  const [chaquetas, setChaquetas] = useState([]);
 
   useEffect(() => {
     const objFunc = async () => {
       const pantsRes = await filterProduct('pantalones', 'all', 1);
       setPantalones(pantsRes);
-      const hoodiesRes = await filterProduct('hoodie', 'all', 1);
-      setHoodies(hoodiesRes);
+      const chaquetasRes = await filterProduct('chaquetas', 'all', 1);
+      setChaquetas(chaquetasRes);
       const all = await getProducts();
       setAll(all);
     };
@@ -49,7 +49,7 @@ const HomePage = () => {
         <CollectionsMain />
         <GridArticle products={pantalones} title='pantalones' />
         <ImageMainSection />
-        <GridArticle products={hoodies} title='hoodies' />
+        <GridArticle products={chaquetas} title='chaquetas' />
         <DraggableCarrousel />
       </section>
     </div>

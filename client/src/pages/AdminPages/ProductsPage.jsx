@@ -12,7 +12,6 @@ const ProductsPage = () => {
   const [sort, setSort] = useState(-1);
   const [hola, setHola] = useState([]);
   const [ayuda, setAayuda] = useState([]);
-  // console.log(params);
 
   const {
     products,
@@ -24,6 +23,8 @@ const ProductsPage = () => {
     darkMode,
     setDarkMode,
     filterProduct,
+    estado,
+    setEstado,
   } = useEcommerceContext();
 
   const data = useEcommerceContext();
@@ -53,7 +54,7 @@ const ProductsPage = () => {
     asyncFunc();
   }, [
     params.id,
-    // products,
+    estado,
     category,
     collections,
     categoryOption,
@@ -90,6 +91,7 @@ const ProductsPage = () => {
             setSort={setSort}
             params={params.id}
             sort={sort}
+            setEstado={setEstado}
           />
         </div>
       </div>

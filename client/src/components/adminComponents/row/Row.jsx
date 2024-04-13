@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import './row.css';
 
 const Row = ({ article, opened, setOpened, params }) => {
-  const { deleteProduct } = useEcommerceContext();
+  const { deleteProduct, estado, setEstado } = useEcommerceContext();
   const location = useLocation();
   const path = location.pathname;
   const rutaEspecifica = path.substring('/admin/'.length);
@@ -34,13 +34,17 @@ const Row = ({ article, opened, setOpened, params }) => {
               onClick={() => {
                 deleteProduct(rutaEspecifica, article._id);
                 toast.dismiss(t.id);
+                setEstado(true);
+                setTimeout(() => {
+                  setEstado(false);
+                }, 1000);
               }}
             >
               Eliminar
             </button>
             <button
               className='p-1 uppercase bg-green-500 hover:bg-green-700'
-              onClick={() => toast.dismiss(article._id)}
+              onClick={() => toast.dismiss(t.id)}
             >
               Cancelar
             </button>
