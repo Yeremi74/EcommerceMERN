@@ -12,7 +12,7 @@ const Card = ({ product }) => {
     setIsHovered(false);
   };
   const string = product.sizes[0];
-  // const array = string.split(',');
+  const array = string.split(',');
   //   console.log(array);
   return (
     <Link
@@ -44,7 +44,7 @@ const Card = ({ product }) => {
         </div>
       ) : (
         <div className='flex justify-evenly uppercase relative h-20 items-center'>
-          {/* <button
+          <button
             disabled={array.includes('xs') ? true : false}
             className={`${
               array.includes('xs')
@@ -108,7 +108,7 @@ const Card = ({ product }) => {
               <div className='before absolute top-1/2 left-0 w-full h-custom bg-gray-900' />
             )}
             xl
-          </button> */}
+          </button>
         </div>
       )}
     </Link>

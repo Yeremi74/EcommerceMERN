@@ -16,9 +16,9 @@ const ProductsPage = () => {
   const {
     products,
     getProducts,
-    // collections,
+    collections,
     getCollections,
-    // category,
+    category,
     getCategory,
     darkMode,
     setDarkMode,
@@ -26,27 +26,31 @@ const ProductsPage = () => {
   } = useEcommerceContext();
 
   const data = useEcommerceContext();
-
+  console.log(data['category']);
+  // console.log(data[params.id.toLowerCase()]);
   useEffect(() => {
     const objFunc = async () => {
       if (params.id === 'products') {
         const res = await filterProduct(categoryOption, collection, sort);
         // console.log(res + 'return filter');
-        setHola(data[params.id.toLowerCase()]);
+        setHola(data['products']);
         // console.log(hola);
         return;
       }
 
       if (params.id === 'Collections') {
         // console.log(`es ${params.id}`);
+        setHola(data['collections']);
         return getCollections();
       }
       if (params.id === 'Category') {
+        setHola(data['category']);
         return getCategory();
       }
     };
     objFunc();
-  }, [categoryOption, collection, hola]);
+    // console.log(hola);
+  }, [categoryOption, collection, hola, params.id, collections, category]);
 
   // console.log(darkMode);
   return (
@@ -60,7 +64,7 @@ const ProductsPage = () => {
             <h1 className='font-bold'>{params.id}</h1>
 
             <div className=' flex flex-col items-center gap-4 '>
-              {/* <DarkModeButton /> */}
+              <DarkModeButton />
               <Link
                 to={`/admin/create/${params.id}`}
                 className='dark:bg-gray-700 text-white p-2 rounded-md bg-gray_custom-300 hover:bg-gray_custom-400'

@@ -7,4 +7,4 @@ app.listen(3001);
 console.log(`server is running in port asd`, 3001);
 setTimeout(() => {
   console.log('active');
-}, 10000);
+}, 1000);

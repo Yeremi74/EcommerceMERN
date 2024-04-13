@@ -142,14 +142,12 @@ const ProductsForm = () => {
                           const { name, checked } = e.target;
                           if (checked) {
                             if (!sizesCovertes.split(',').includes(name)) {
-                              console.log('no esta añadido');
                               setProduct({
                                 ...product,
                                 sizes: [...product.sizes, name],
                               });
                             }
                           } else {
-                            console.log('ya esta añadido');
                             setProduct({
                               ...product,
                               sizes: sizesCovertes
@@ -181,14 +179,12 @@ const ProductsForm = () => {
                           const { name, checked } = e.target;
                           if (checked) {
                             if (!sizesCovertes.split(',').includes(name)) {
-                              console.log('no esta añadido');
                               setProduct({
                                 ...product,
                                 sizes: [...product.sizes, name],
                               });
                             }
                           } else {
-                            console.log('ya esta añadido');
                             setProduct({
                               ...product,
                               sizes: sizesCovertes
@@ -220,14 +216,12 @@ const ProductsForm = () => {
                           const { name, checked } = e.target;
                           if (checked) {
                             if (!sizesCovertes.split(',').includes(name)) {
-                              console.log('no esta añadido');
                               setProduct({
                                 ...product,
                                 sizes: [...product.sizes, name],
                               });
                             }
                           } else {
-                            console.log('ya esta añadido');
                             setProduct({
                               ...product,
                               sizes: sizesCovertes
@@ -259,14 +253,12 @@ const ProductsForm = () => {
                           const { name, checked } = e.target;
                           if (checked) {
                             if (!sizesCovertes.split(',').includes(name)) {
-                              console.log('no esta añadido');
                               setProduct({
                                 ...product,
                                 sizes: [...product.sizes, name],
                               });
                             }
                           } else {
-                            console.log('ya esta añadido');
                             setProduct({
                               ...product,
                               sizes: sizesCovertes
@@ -298,14 +290,12 @@ const ProductsForm = () => {
                           const { name, checked } = e.target;
                           if (checked) {
                             if (!sizesCovertes.split(',').includes(name)) {
-                              console.log('no esta añadido');
                               setProduct({
                                 ...product,
                                 sizes: [...product.sizes, name],
                               });
                             }
                           } else {
-                            console.log('ya esta añadido');
                             setProduct({
                               ...product,
                               sizes: sizesCovertes

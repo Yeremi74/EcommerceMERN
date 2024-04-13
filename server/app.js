@@ -41,6 +41,9 @@ app.use(postsRoutes);
 app.use(categoryRoutes);
 app.use(collectionRoutes);
 
+setTimeout(() => {
+  console.log('active');
+}, 1000);
 // console.log(__dirname__);
 // app.use(express.static(join(__dirname__, '../client/dist')));
 

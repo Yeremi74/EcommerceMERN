@@ -28,9 +28,9 @@ const Row = ({ article, opened, setOpened, params }) => {
       (t) => (
         <div>
           <p>Deseas eliminar? {article._id}</p>
-          <div>
+          <div className='flex gap-2'>
             <button
-              className='toast-button toast-button-delete'
+              className='p-1 uppercase bg-red-500 hover:bg-red-700'
               onClick={() => {
                 deleteProduct(rutaEspecifica, article._id);
                 toast.dismiss(t.id);
@@ -39,7 +39,7 @@ const Row = ({ article, opened, setOpened, params }) => {
               Eliminar
             </button>
             <button
-              className='toast-button toast-button-cancel'
+              className='p-1 uppercase bg-green-500 hover:bg-green-700'
               onClick={() => toast.dismiss(t.id)}
             >
               Cancelar
