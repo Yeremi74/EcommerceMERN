@@ -34,10 +34,9 @@ const ProductsPage = () => {
       if (params.id === 'products') {
         const res = await filterProduct(categoryOption, collection, sort);
         setAayuda(res);
-        console.log(ayuda);
 
         setHola(res);
-        // console.log(hola);
+        console.log(hola);
       }
 
       if (params.id === 'Collections') {
@@ -54,7 +53,7 @@ const ProductsPage = () => {
     asyncFunc();
   }, [
     params.id,
-    products,
+    // products,
     category,
     collections,
     categoryOption,
