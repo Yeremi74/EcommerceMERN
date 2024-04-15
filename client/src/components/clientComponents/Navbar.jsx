@@ -54,7 +54,7 @@ const Navbar = () => {
               to='/admin/products'
               className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold'
             >
-              about us
+              admin
             </Link>
           </div>
           <div>
