@@ -128,6 +128,10 @@ const Navbar = () => {
             <Link
               to='/catalog/*'
               className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'
+              onClick={() => {
+                setIsScrollDisabled(false);
+                setActiveMobileMenu(false);
+              }}
             >
               shop
             </Link>
@@ -136,15 +140,29 @@ const Navbar = () => {
                 isHoveringCollections ? 'collections-hover' : ''
               }`}
               to='/collections'
+              onClick={() => {
+                setIsScrollDisabled(false);
+                setActiveMobileMenu(false);
+              }}
             >
               colecciones
             </Link>
-            <Link className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'>
+            <Link
+              className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'
+              onClick={() => {
+                setIsScrollDisabled(false);
+                setActiveMobileMenu(false);
+              }}
+            >
               stores
             </Link>
             <Link
               to='/admin/products'
               className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'
+              onClick={() => {
+                setIsScrollDisabled(false);
+                setActiveMobileMenu(false);
+              }}
             >
               admin
             </Link>
