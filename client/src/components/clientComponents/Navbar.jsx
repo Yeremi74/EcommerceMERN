@@ -38,7 +38,7 @@ const Navbar = () => {
           <div
             className='sm:hidden block w-full'
             onClick={() => {
-              setIsScrollDisabled(!isScrollDisabled);
+              // setIsScrollDisabled(!isScrollDisabled);
               setActiveMobileMenu(!activeMobileMenu);
             }}
           >
