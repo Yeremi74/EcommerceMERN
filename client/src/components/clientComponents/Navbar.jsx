@@ -121,18 +121,33 @@ const Navbar = () => {
             />
           )}
           <section
-            className={`bg-white h-screen w-screen absolute top-0 -translate-x-full ${
+            className={`bg-white h-screen w-screen absolute top-0 -translate-x-full flex flex-col gap-4 ${
               activeMobileMenu && 'translate-x-0'
             } transition-all z-40`}
           >
-            <p>new arrivals</p>
-            <p>new arrivals</p>
-            <p>new arrivals</p>
-            <p>new arrivals</p>
-            <p>new arrivals</p>
-            <p>new arrivals</p>
-            <p>new arrivals</p>
-            <p>new arrivals</p>
+            <Link
+              to='/catalog/*'
+              className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'
+            >
+              shop
+            </Link>
+            <Link
+              className={`uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-full flex items-center  h-fit${
+                isHoveringCollections ? 'collections-hover' : ''
+              }`}
+              to='/collections'
+            >
+              colecciones
+            </Link>
+            <Link className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'>
+              stores
+            </Link>
+            <Link
+              to='/admin/products'
+              className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'
+            >
+              admin
+            </Link>
           </section>
         </div>
       </div>
