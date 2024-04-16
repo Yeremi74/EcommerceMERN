@@ -7,6 +7,7 @@ import {
   getProductsRequest,
   getUniqueProductRequest,
   updateProductRequest,
+  getSearchProductRequest,
 } from '../api/products';
 import { getCollectionRequest } from '../api/colleciones';
 import { getCategoryRequest } from '../api/category';
@@ -45,6 +46,11 @@ export const ContextProvider = ({ children }) => {
   const getCategory = async () => {
     const res = await getCategoryRequest();
     setCategory(res.data);
+  };
+
+  const getSearch = async (searchText) => {
+    const res = await getSearchProductRequest(searchText);
+    return res;
   };
 
   const createProduct = async (product, id) => {
@@ -100,6 +106,7 @@ export const ContextProvider = ({ children }) => {
         setIsScrollDisabled,
         estado,
         setEstado,
+        getSearch,
       }}
     >
       {children}

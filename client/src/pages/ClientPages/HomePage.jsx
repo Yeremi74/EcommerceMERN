@@ -22,7 +22,7 @@ const HomePage = () => {
       setAll(all);
     };
     objFunc();
-  }, [getProducts, pantalones]);
+  }, []);
 
   return (
     <div>

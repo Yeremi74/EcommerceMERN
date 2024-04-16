@@ -59,7 +59,7 @@ const Navbar = () => {
           </div>
           <div>
             <Link to='/' className='uppercase cursor-pointer font-bold'>
-              nude project
+              Ecommerce
             </Link>
           </div>
           <div className='flex gap-3'>

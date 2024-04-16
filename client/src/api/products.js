@@ -1,5 +1,13 @@
 import axios from 'axios';
+
 // !GET
+
+export const getSearchProductRequest = async (searchText) => {
+  await axios.get(
+    `https://backend-ecommercemern.onrender.com/api/products/catalog/${searchText}`
+  );
+};
+
 export const getProductsRequest = async () =>
   await axios.get(`https://backend-ecommercemern.onrender.com/api/products`);
 

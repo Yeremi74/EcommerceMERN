@@ -3,6 +3,21 @@ import Products from '../models/Products.js';
 import fs from 'fs-extra';
 const folder = 'products';
 
+export const filterProductsByName = async (req, res) => {
+  try {
+    // Assuming you have a model for Products (replace with your actual model)
+    console.log(req.params.name);
+    const products = await Products.find({
+      title: { $regex: new RegExp(req.params.name, 'i') },
+    });
+
+    res.send(products);
+  } catch (error) {
+    console.error(error);
+    throw error; // Re-throw the error for proper handling
+  }
+};
+
 export const Filters = async (req, res) => {
   try {
     const categoryName = req.params.cat;
