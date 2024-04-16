@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import GridArticle from '../../components/clientComponents/GridArticle';
 import { useEcommerceContext } from '../../context/Context';
 import Navbar from '../../components/clientComponents/Navbar';
+import { motion } from 'framer-motion';
 
 const Catalog = () => {
   const params = useParams();
@@ -34,11 +35,20 @@ const Catalog = () => {
     sortFilter,
   ]);
 
+  const [width, setWidth] = useState(0);
+
+  const slider_wrapper = useRef();
+
+  useEffect(() => {
+    setWidth(
+      slider_wrapper.current.scrollWidth - slider_wrapper.current.offsetWidth
+    );
+  }, []);
   return (
     <div>
       <Navbar />
       <div className=''>
-        <h2 className='uppercase font-bold py-2 px-6 flex justify-between'>
+        <h2 className='uppercase font-bold py-4 px-6 flex justify-between'>
           <p>
             {collectFilter === 'all' ? 'todos los productos' : collectFilter}
           </p>
@@ -55,24 +65,32 @@ const Catalog = () => {
             )}
           </div>
         </h2>
-        <div className='flex justify-between px-6'>
-          {category.map((cat) => (
-            <div
-              key={cat.title}
-              className={`uppercase cursor-pointer py-2 ${
-                catFilter == cat.title
-                  ? 'underline decoration-black text-black'
-                  : 'text-gray-500'
-              }`}
-              onClick={() => {
-                cat.title == 'todos los productos'
-                  ? setCatFilter('all')
-                  : setCatFilter(cat.title);
-              }}
+        <div className=''>
+          <motion.div ref={slider_wrapper} whileTap={{ cursor: 'grabbing' }}>
+            <motion.div
+              drag='x'
+              dragConstraints={{ right: 0, left: -width }}
+              className='flex gap-2 '
             >
-              <p className=''>{cat.title}</p>
-            </div>
-          ))}
+              {category.map((cat) => (
+                <div
+                  key={cat.title}
+                  className={`uppercase cursor-pointer py-2 ${
+                    catFilter == cat.title
+                      ? 'underline decoration-black text-black'
+                      : 'text-gray-500'
+                  }`}
+                  onClick={() => {
+                    cat.title == 'todos los productos'
+                      ? setCatFilter('all')
+                      : setCatFilter(cat.title);
+                  }}
+                >
+                  <p className='block min-w-40 text-center'>{cat.title}</p>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
         <section
           className={
