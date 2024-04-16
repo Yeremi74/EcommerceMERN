@@ -45,7 +45,7 @@ const Navbar = () => {
             <GiHamburgerMenu />
           </div>
 
-          <div className='gap-3 h-full items-center hidden sm:flex'>
+          <div className='gap-3 h-full items-center hidden sm:flex w-full'>
             <Link
               to='/catalog/*'
               className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold'
@@ -73,7 +73,10 @@ const Navbar = () => {
             </Link>
           </div>
           <div className='w-full justify-center flex'>
-            <Link to='/' className='uppercase cursor-pointer font-bold '>
+            <Link
+              to='/'
+              className='uppercase cursor-pointer font-bold w-fullflex justify-center'
+            >
               Ecommerce
             </Link>
           </div>
