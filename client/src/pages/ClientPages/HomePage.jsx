@@ -33,12 +33,12 @@ const HomePage = () => {
           loop
           muted
           playsInline
-          src='https://cdn.shopify.com/videos/c/o/v/23e8943caf4a4ff9add43ae9f37b4934.mp4'
-          className='w-full'
+          src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
+          className='w-full sm:h-screen'
         >
           <source
             className='h-screen'
-            src='https://cdn.shopify.com/videos/c/o/v/23e8943caf4a4ff9add43ae9f37b4934.mp4'
+            src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
             type='video/mp4'
             data-ly-processed='1712212206559'
           />
