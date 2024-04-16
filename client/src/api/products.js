@@ -3,7 +3,7 @@ import axios from 'axios';
 // !GET
 
 export const getSearchProductRequest = async (searchText) => {
-  await axios.get(
+  return await axios.get(
     `https://backend-ecommercemern.onrender.com/api/products/catalog/${searchText}`
   );
 };

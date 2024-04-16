@@ -20,6 +20,9 @@ export default {
       height: {
         custom: '1px',
       },
+      fontSize: {
+        peque: '10px',
+      },
     },
   },
   plugins: [],

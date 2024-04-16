@@ -42,18 +42,18 @@ const TablePanelAdmin = ({
     setSort(-1);
   };
   return (
-    <div className='tablePanelAdminContainer'>
+    <div className='min-h-screen '>
       <table className='w-full'>
         <thead className='h-16'>
           <tr>
-            <th>Nombre</th>
-            <th>ID</th>
+            <th className=''>Nombre</th>
+            <th className='hidden sm:table-cell'>ID</th>
             {params === 'products' && (
               <>
                 <th>
-                  <div className='category'>
+                  <div className='category hidden sm:block'>
                     <select
-                      className='text-gray-600'
+                      className='text-gray-600 w-full'
                       name='category'
                       onChange={(e) => setCategory(e.target.value)}
                     >
@@ -69,9 +69,9 @@ const TablePanelAdmin = ({
                   </div>
                 </th>
                 <th>
-                  <div className='category'>
+                  <div className='category hidden sm:table-cell'>
                     <select
-                      className='text-gray-600'
+                      className='text-gray-600 w-full'
                       name='collections'
                       onChange={(e) => setCollection(e.target.value)}
                     >
@@ -86,19 +86,19 @@ const TablePanelAdmin = ({
                     </select>
                   </div>
                 </th>
-                <th className='price'>
+                <th className='price hidden sm:table-cell'>
                   <span
                     className='flex items-center gap-3 px-3'
                     onClick={handlePrice}
                   >
-                    <p>Precio</p>
+                    <p className='hidden sm:block'>Precio</p>
                     <span className='dark:bg-gray-900 bg-gray_custom-200 text-white font-bold block p-1 cursor-pointer rounded'>
                       {sort === -1 ? <IoIosArrowUp /> : <IoIosArrowDown />}
                     </span>
                   </span>
                 </th>
                 {/* <th>Tipo</th> */}
-                <th>Disponible</th>
+                <th className='hidden sm:table-cell'>Disponible</th>
               </>
             )}
             <th>Opciones</th>

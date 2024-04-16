@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import myImage from '../../assets/428be75be09645f9b22178469ed2a718.mp4';
 import { useEcommerceContext } from '../../context/Context';
 import GridArticle from '../../components/clientComponents/GridArticle';
 import CollectionsMain from '../../components/clientComponents/CollectionsMain';
@@ -28,17 +27,18 @@ const HomePage = () => {
     <div>
       <Navbar />
 
-      <header>
+      <header className=''>
         <video
           autoPlay
           loop
           muted
           playsInline
-          src={myImage}
-          className='w-full '
+          src='https://cdn.shopify.com/videos/c/o/v/23e8943caf4a4ff9add43ae9f37b4934.mp4'
+          className='w-full'
         >
           <source
-            src={myImage}
+            className='h-screen'
+            src='https://cdn.shopify.com/videos/c/o/v/23e8943caf4a4ff9add43ae9f37b4934.mp4'
             type='video/mp4'
             data-ly-processed='1712212206559'
           />

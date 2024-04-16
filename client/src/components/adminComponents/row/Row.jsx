@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import './row.css';
 
 const Row = ({ article, opened, setOpened, params }) => {
-  const { deleteProduct, estado, setEstado } = useEcommerceContext();
+  const { deleteProduct, setEstado } = useEcommerceContext();
   const location = useLocation();
   const path = location.pathname;
   const rutaEspecifica = path.substring('/admin/'.length);
@@ -70,7 +70,7 @@ const Row = ({ article, opened, setOpened, params }) => {
       className='border-solid border-b border-t  dark:border-white-900 border-gray-900  text-center'
     >
       <td className='p-3'>
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-4'>
           <img
             src={article.image?.url}
             alt={`Imagen de ${article.title}`}
@@ -79,23 +79,29 @@ const Row = ({ article, opened, setOpened, params }) => {
           <p>{article.title}</p>
         </div>
       </td>
-      <td>{article._id.slice(0, 10)}...</td>
-      {params === 'products' && <td>{article.category}</td>}
-      {params === 'products' && <td>{article.collectionType}</td>}
-      {params === 'products' && <td>{article.price}$</td>}
+      <td className='hidden sm:table-cell'>{article._id.slice(0, 10)}...</td>
+      {params === 'products' && (
+        <td className='hidden sm:table-cell'>{article.category}</td>
+      )}
+      {params === 'products' && (
+        <td className='hidden sm:table-cell'>{article.collectionType}</td>
+      )}
+      {params === 'products' && (
+        <td className='hidden sm:table-cell'>{article.price}$</td>
+      )}
       {params === 'products' && (
         <td>
           <p
             className={`${
               article.available ? ' bg-green_custom-100' : 'bg-red-500'
-            } p-4 rounded-md font-bold`}
+            } p-4 rounded-md font-bold hidden sm:table-cell`}
           >
             {article.available ? 'Disponible' : 'No Disponible'}
           </p>
         </td>
       )}
       <td id='options'>
-        <div className='flex justify-center cursor-pointer relative w-fit my-0 mx-auto'>
+        <div className='flex justify-center cursor-pointer relative w-fit my-0 mx-auto '>
           {opened === article._id && (
             <div
               className={`absolute bg-white p-2 -top-14 -right-5 transition-opacity duration-75 ease-in flex flex-col gap-2 items-center rounded ${

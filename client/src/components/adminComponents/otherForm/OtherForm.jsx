@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { useEcommerceContext } from '../../../context/Context';
 import { FaSpinner } from 'react-icons/fa6';
 import '../productsForm/switch.css';
-import DarkModeButton from '../darkModeButton/DarkModeButton';
-import AdminPanelNavbar from '../AdminPanelNavBar/AdminPanelNavbar';
+import NavbarAdmin from '../NavbarAdmin';
 
 const OtherForm = () => {
   const params = useParams();
@@ -13,10 +12,7 @@ const OtherForm = () => {
     getUniqueProduct,
     updateProduct,
     getCategory,
-    category,
-    collections,
     getCollections,
-    darkMode,
   } = useEcommerceContext();
   const navigate = useNavigate();
 
@@ -73,14 +69,12 @@ const OtherForm = () => {
 
   return (
     <div className='flex capitalize dark:bg-gray-800'>
-      <div className='w-44 h-screen'>
-        <AdminPanelNavbar />
-      </div>
-      <div className='m-auto my-7 w-5/6  dark:bg-gray-700 bg-gray_custom-100 rounded-md p-6 '>
-        <DarkModeButton />
+      <NavbarAdmin />
+
+      <div className='m-auto my-7 sm:w-5/6  dark:bg-gray-700 bg-gray_custom-100 rounded-md p-6 '>
         <form onSubmit={handleSubmit}>
           <div className='flex flex-col gap-3 items-center text-black dark:text-white'>
-            <div className='flex  w-1/2'>
+            <div className='flex w-full sm:w-1/2'>
               <div className='flex flex-col gap-4 w-full'>
                 <label htmlFor='title'>
                   Titulo
@@ -98,8 +92,8 @@ const OtherForm = () => {
                 />
               </div>
             </div>
-            <div className='flex dark:bg-gray-800 flex-wrap w-1/2 my-10 m-auto justify-center items-center gap-4 py-6 rounded bg-gray_custom-200'>
-              <div className='w-1/2 bg-gray-700 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+            <div className='flex dark:bg-gray-800 flex-wrap w-full sm:w-1/2 my-10 m-auto justify-center items-center gap-4 py-6 rounded bg-gray_custom-200 px-2'>
+              <div className='sm:w-2/5 bg-gray-700 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
                 <input
                   type='file'
                   className='w-full'

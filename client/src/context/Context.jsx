@@ -50,6 +50,8 @@ export const ContextProvider = ({ children }) => {
 
   const getSearch = async (searchText) => {
     const res = await getSearchProductRequest(searchText);
+    console.log(searchText);
+    console.log(res);
     return res;
   };
 

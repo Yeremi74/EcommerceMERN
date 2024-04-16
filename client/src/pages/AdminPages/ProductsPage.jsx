@@ -1,27 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useEcommerceContext } from '../../context/Context';
 import { Link, useParams } from 'react-router-dom';
-import DarkModeButton from '../../components/adminComponents/darkModeButton/DarkModeButton';
 import TablePanelAdmin from '../../components/adminComponents/TablePanelAdmin/TablePanelAdmin';
-// import './AdminPages.css';
-import AdminPanelNavbar from '../../components/adminComponents/AdminPanelNavBar/AdminPanelNavbar';
+
+import NavbarAdmin from '../../components/adminComponents/NavbarAdmin';
 const ProductsPage = () => {
   const params = useParams();
   const [categoryOption, setCategory] = useState('all');
   const [collection, setCollection] = useState('all');
   const [sort, setSort] = useState(-1);
   const [hola, setHola] = useState([]);
-  const [ayuda, setAayuda] = useState([]);
 
   const {
-    products,
-    getProducts,
     collections,
     getCollections,
     category,
     getCategory,
-    darkMode,
-    setDarkMode,
     filterProduct,
     estado,
     setEstado,
@@ -34,10 +28,8 @@ const ProductsPage = () => {
     const asyncFunc = async () => {
       if (params.id === 'products') {
         const res = await filterProduct(categoryOption, collection, sort);
-        setAayuda(res);
 
         setHola(res);
-        console.log(hola);
       }
 
       if (params.id === 'Collections') {
@@ -65,16 +57,17 @@ const ProductsPage = () => {
   // console.log(darkMode);
   return (
     <div>
+      <NavbarAdmin />
+
       <div className='flex capitalize dark:bg-gray-800'>
-        <div className='w-44 h-screen'>
+        {/* <div className='w-44 h-screen hidden sm:block'>
           <AdminPanelNavbar />
-        </div>
-        <div className=' m-auto my-7 w-5/6  dark:bg-gray-700 bg-gray_custom-100 dark:text-white rounded-md p-6 text-black'>
+        </div> */}
+        <div className=' m-auto w-full my-7 sm:w-5/6  dark:bg-gray-700 bg-gray_custom-100 dark:text-white rounded-md sm:p-6 p-2 text-black mt-20'>
           <header className=' flex justify-between items-center p-5 dark:bg-gray-800 bg-gray_custom-200 rounded'>
             <h1 className='font-bold'>{params.id}</h1>
 
             <div className=' flex flex-col items-center gap-4 '>
-              <DarkModeButton />
               <Link
                 to={`/admin/create/${params.id}`}
                 className='dark:bg-gray-700 text-white p-2 rounded-md bg-gray_custom-300 hover:bg-gray_custom-400'

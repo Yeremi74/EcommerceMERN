@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-const DraggableCard = ({ size }) => {
+import { useNavigate } from 'react-router-dom';
+const DraggableCard = ({ size, img }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -30,7 +32,7 @@ const DraggableCard = ({ size }) => {
           }`}
         >
           <img
-            src='https://nude-project.com/cdn/shop/files/IMG_1508_400x.png?v=1704213791'
+            src={img}
             className='w-full h-full object-cover block pointer-events-none'
           />
         </div>
@@ -47,6 +49,11 @@ const DraggableCard = ({ size }) => {
       </div>
     </div>
   );
+};
+
+DraggableCard.propTypes = {
+  size: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
 };
 
 export default DraggableCard;
