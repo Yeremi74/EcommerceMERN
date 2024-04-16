@@ -136,7 +136,7 @@ const Navbar = () => {
               shop
             </Link>
             <Link
-              className={`uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-full flex items-center  h-fit${
+              className={`uppercase cursor-pointer hover:text-black text-gray-600 font-bold flex items-center  h-fit${
                 isHoveringCollections ? 'collections-hover' : ''
               }`}
               to='/collections'
@@ -146,15 +146,6 @@ const Navbar = () => {
               }}
             >
               colecciones
-            </Link>
-            <Link
-              className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-fit'
-              onClick={() => {
-                setIsScrollDisabled(false);
-                setActiveMobileMenu(false);
-              }}
-            >
-              stores
             </Link>
             <Link
               to='/admin/products'
