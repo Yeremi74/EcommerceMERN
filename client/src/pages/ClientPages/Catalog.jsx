@@ -65,7 +65,7 @@ const Catalog = () => {
             )}
           </div>
         </h2>
-        <div className=''>
+        <div className='w-screen overflow-hidden'>
           <motion.div ref={slider_wrapper} whileTap={{ cursor: 'grabbing' }}>
             <motion.div
               drag='x'
