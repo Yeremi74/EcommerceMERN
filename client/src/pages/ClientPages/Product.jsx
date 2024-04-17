@@ -7,7 +7,7 @@ import GridArticle from '../../components/clientComponents/GridArticle';
 import DraggableCarrousel from '../../components/clientComponents/DraggableCarrousel';
 const Product = () => {
   const params = useParams();
-  const { products, getUniqueProduct, getProducts, filterProduct } =
+  const { getUniqueProduct, getProducts, filterProduct } =
     useEcommerceContext();
   const [product, setProduct] = useState([]);
   const [sizesSelected, setSizesSelected] = useState('');
@@ -26,18 +26,9 @@ const Product = () => {
         1
       );
       setCategoryFilter(categoryFilterReq);
-      console.log(categoryFilter);
     };
     objFunc();
-  }, [
-    getUniqueProduct,
-
-    params.id,
-    product,
-    getProducts,
-    filterProduct,
-    categoryFilter,
-  ]);
+  }, [params.id]);
 
   //   console.log(sizesJoined);
   return (

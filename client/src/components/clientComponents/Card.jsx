@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useEcommerceContext } from '../../context/Context';
 const Card = ({ product }) => {
+  const { setIsScrollDisabled } = useEcommerceContext;
+
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -20,6 +23,7 @@ const Card = ({ product }) => {
       className='flex flex-col w-full'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={() => setIsScrollDisabled(false)}
     >
       <header>
         <img

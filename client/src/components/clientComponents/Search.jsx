@@ -47,7 +47,15 @@ const Search = ({ setSearchState, setIsScrollDisabled }) => {
             <p>
               <span>{product.length}</span> resultados
             </p>
-            <Link>ver todo</Link>
+            <Link
+              to={`/catalog/search/${searchTextApi}`}
+              onClick={() => {
+                setSearchState(false);
+                setIsScrollDisabled(false);
+              }}
+            >
+              ver todo
+            </Link>
           </div>
           {searchTextApi !== '' && (
             <div className='h-11'>

@@ -9,7 +9,7 @@ import { Toaster } from 'react-hot-toast';
 import Product from './pages/ClientPages/Product';
 import Catalog from './pages/ClientPages/Catalog';
 import CollectionPages from './pages/ClientPages/CollectionPages';
-import { useEffect, useState } from 'react';
+import CatalogSearch from './pages/ClientPages/CatalogSearch';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/product/:id' element={<Product />} />
             <Route path='/catalog/:collections' element={<Catalog />} />
+            <Route path='/catalog/search/:search' element={<CatalogSearch />} />
             <Route path='/collections' element={<CollectionPages />} />
 
             <Route path='/admin' element={<AdminPage />} />

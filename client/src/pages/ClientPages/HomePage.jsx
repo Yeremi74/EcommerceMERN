@@ -34,10 +34,10 @@ const HomePage = () => {
           muted
           playsInline
           src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
-          className='w-full sm:h-screen'
+          className='sm:w-full h-screen object-cover'
         >
           <source
-            className='h-screen'
+            className='sm:w-full h-screen object-cover'
             src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
             type='video/mp4'
             data-ly-processed='1712212206559'

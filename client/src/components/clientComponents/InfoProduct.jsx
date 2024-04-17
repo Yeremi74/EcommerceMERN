@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 import { TbRulerMeasure } from 'react-icons/tb';
+import BtnInfoProduct from './BtnInfoProduct';
 
 const InfoProduct = ({ product, sizesSelected, setSizesSelected }) => {
-  const sizesJoined = product.sizes && product.sizes[0].slice(1).split(',');
-  //   console.log(sizesJoined);
-
   return (
     <div className='flex p-6'>
       <div className='w-full'>
@@ -53,20 +51,36 @@ const InfoProduct = ({ product, sizesSelected, setSizesSelected }) => {
             )}
           </div>
           <div className='flex h-32 w-11/12 items-center border-b border-solid border-gray-300 gap-7'>
-            {product.sizes &&
-              sizesJoined.map((talla) => (
-                <button
-                  key={talla}
-                  onClick={() => setSizesSelected(talla)}
-                  className={`${
-                    sizesSelected === talla
-                      ? 'after:content-[""] after:h-custom after:w-full after:absolute after:bottom-0 after:bg-gray-900 after:block'
-                      : ''
-                  } text-2xl text-slate-700 w-16 h-16 relative uppercase`}
-                >
-                  {talla}
-                </button>
-              ))}
+            <BtnInfoProduct
+              talla='xs'
+              setSizesSelected={setSizesSelected}
+              product={product}
+              sizesSelected={sizesSelected}
+            />
+            <BtnInfoProduct
+              talla='s'
+              setSizesSelected={setSizesSelected}
+              product={product}
+              sizesSelected={sizesSelected}
+            />
+            <BtnInfoProduct
+              talla='m'
+              setSizesSelected={setSizesSelected}
+              product={product}
+              sizesSelected={sizesSelected}
+            />
+            <BtnInfoProduct
+              talla='l'
+              setSizesSelected={setSizesSelected}
+              product={product}
+              sizesSelected={sizesSelected}
+            />
+            <BtnInfoProduct
+              talla='xl'
+              setSizesSelected={setSizesSelected}
+              product={product}
+              sizesSelected={sizesSelected}
+            />
           </div>
           <div className='flex flex-col gap-4'>
             <span className='flex items-center gap-1 uppercase font-bold pl-2 pt-5'>

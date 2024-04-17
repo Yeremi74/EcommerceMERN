@@ -4,6 +4,15 @@ import GridArticle from '../../components/clientComponents/GridArticle';
 import { useEcommerceContext } from '../../context/Context';
 import Navbar from '../../components/clientComponents/Navbar';
 import { motion } from 'framer-motion';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
+} from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const Catalog = () => {
   const params = useParams();
@@ -35,20 +44,12 @@ const Catalog = () => {
     sortFilter,
   ]);
 
-  const [width, setWidth] = useState(0);
-
-  const slider_wrapper = useRef();
-
-  useEffect(() => {
-    setWidth(
-      slider_wrapper.current.scrollWidth - slider_wrapper.current.offsetWidth
-    );
-  }, []);
+  //! : setCatFilter(cat.title);
   return (
     <div>
       <Navbar />
-      <div className=''>
-        <h2 className='uppercase font-bold py-4 px-6 flex justify-between'>
+      <div className='flex min-h-96'>
+        {/* <h2 className='uppercase font-bold py-4 px-6 flex justify-between'>
           <p>
             {collectFilter === 'all' ? 'todos los productos' : collectFilter}
           </p>
@@ -64,41 +65,88 @@ const Catalog = () => {
               </div>
             )}
           </div>
-        </h2>
-        <div className='w-screen overflow-hidden'>
-          <motion.div ref={slider_wrapper} whileTap={{ cursor: 'grabbing' }}>
-            <motion.div
-              drag='x'
-              dragConstraints={{ right: 0, left: -width }}
-              className='flex gap-2 '
-            >
-              {category.map((cat) => (
-                <div
-                  key={cat.title}
-                  className={`uppercase cursor-pointer py-2 ${
-                    catFilter == cat.title
-                      ? 'underline decoration-black text-black'
-                      : 'text-gray-500'
-                  }`}
-                  onClick={() => {
-                    cat.title == 'todos los productos'
-                      ? setCatFilter('all')
-                      : setCatFilter(cat.title);
-                  }}
-                >
-                  <p className='block min-w-40 text-center'>{cat.title}</p>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
+        </h2> */}
+        <div className='w-1/4 relative'>
+          <div className='sticky top-32 block w-11/12 my-0 mx-auto'>
+            <p className='px-4'>{product.length} items</p>
+            <ChakraProvider>
+              <Accordion defaultIndex={[0]} allowMultiple>
+                <AccordionItem className='py-3'>
+                  <h2>
+                    <AccordionButton>
+                      <Box
+                        as='span'
+                        flex='1'
+                        textAlign='left'
+                        className='capitalize text-black font-bold'
+                      >
+                        category
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  {category.map((cat) => (
+                    <div key={cat._id}>
+                      <AccordionPanel
+                        pb={4}
+                        className='text-gray-500 p-0'
+                        onClick={() => setCatFilter(cat.title)}
+                      >
+                        <label className='capitalize gap-2 flex hover:font-bold'>
+                          <input type='radio' name='cat' id='' />
+                          {cat.title == 'all'
+                            ? 'todos los productos'
+                            : cat.title}
+                        </label>
+                      </AccordionPanel>
+                    </div>
+                  ))}
+                </AccordionItem>
+
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box as='span' flex='1' textAlign='left'>
+                        precio
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </AccordionPanel>
+                </AccordionItem>
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box as='span' flex='1' textAlign='left'>
+                        coleccion
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+            </ChakraProvider>
+          </div>
         </div>
+
         <section
           className={
             product.length == 0 ? 'flex justify-center items-center h-72' : ''
           }
         >
           {product.length == 0 ? (
-            <div className='uppercase font-bold flex flex-col items-center'>
+            <div className='uppercase font-bold flex flex-col items-center m'>
               <p>no hay productos</p>
               <span>:(</span>
             </div>
@@ -107,6 +155,9 @@ const Catalog = () => {
           )}
         </section>
       </div>
+      <div className='h-96'></div>
+      <div className='h-96'></div>
+      <div className='h-96'></div>
     </div>
   );
 };
