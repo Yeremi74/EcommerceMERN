@@ -45,7 +45,7 @@ const HomePage = () => {
         </video>
       </header>
       <section>
-        <GridArticle products={all} title='new in' />
+        <GridArticle products={all.slice(0, 8)} title='new in' />
         <CollectionsMain />
         <GridArticle products={pantalones} title='pantalones' />
         <ImageMainSection />

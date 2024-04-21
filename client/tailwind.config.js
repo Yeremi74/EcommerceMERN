@@ -19,6 +19,7 @@ export default {
       },
       height: {
         custom: '1px',
+        custom_navBar: '510px',
       },
       fontSize: {
         peque: '10px',

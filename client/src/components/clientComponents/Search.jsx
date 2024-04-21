@@ -48,7 +48,7 @@ const Search = ({ setSearchState, setIsScrollDisabled }) => {
               <span>{product.length}</span> resultados
             </p>
             <Link
-              to={`/catalog/search/${searchTextApi}`}
+              to={`/catalog/search/${searchTextApi}/all`}
               onClick={() => {
                 setSearchState(false);
                 setIsScrollDisabled(false);

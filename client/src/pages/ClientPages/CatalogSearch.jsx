@@ -12,6 +12,8 @@ const CatalogSearch = () => {
 
   useEffect(() => {
     const objFunc = async () => {
+      console.log(params);
+
       const res = await getSearch(params.search);
       setProduct(res.data);
     };

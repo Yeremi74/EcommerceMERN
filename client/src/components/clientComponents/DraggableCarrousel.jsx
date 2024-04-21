@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import DraggableCard from './DraggableCard';
 
-const DraggableCarrousel = ({ size }) => {
+const DraggableCarrousel = () => {
   const [width, setWidth] = useState(0);
 
   const slider_wrapper = useRef();
@@ -17,7 +17,7 @@ const DraggableCarrousel = ({ size }) => {
 
   return (
     <div className='flex items-center w-full flex-col'>
-      <div className={size === 'full' ? 'w-full' : 'w-11/12'}>
+      <div className='w-full px-6'>
         <motion.div
           className='w-full overflow-hidden p-5 flex '
           ref={slider_wrapper}
@@ -28,38 +28,14 @@ const DraggableCarrousel = ({ size }) => {
             drag='x'
             dragConstraints={{ right: 0, left: -width }}
           >
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sin_titulo-4_9b05e8c5-4de5-4e00-a279-20e74381db1e_400x.jpg?v=1712850536'
-            />
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sin_titulo-9_0977f3ff-f26c-47bc-bfcb-38bee7560019_400x.jpg?v=1712859933'
-            />
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sin_titulo-2_d6c189bc-ff3f-4b88-9e66-865db390e76e_400x.jpg?v=1712860021'
-            />
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sintitulo-16_920c1e47-ed2e-4209-85e1-56d53191d53c_400x.jpg?v=1712851792'
-            />
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sintitulo-1copia16_400x.jpg?v=1712853184'
-            />
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sin_titulo-5_400x.jpg?v=1712860299'
-            />
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sintitulo-8_18928791-f400-4789-813c-19760e836e85_400x.jpg?v=1712845437'
-            />
-            <DraggableCard
-              size={size}
-              img='https://nude-project.com/cdn/shop/files/Sintitulo-2_6f188028-6eb3-427e-81f8-ccfccdc8b859_400x.jpg?v=1712839633'
-            />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sin_titulo-4_9b05e8c5-4de5-4e00-a279-20e74381db1e_400x.jpg?v=1712850536' />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sin_titulo-9_0977f3ff-f26c-47bc-bfcb-38bee7560019_400x.jpg?v=1712859933' />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sin_titulo-2_d6c189bc-ff3f-4b88-9e66-865db390e76e_400x.jpg?v=1712860021' />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sintitulo-16_920c1e47-ed2e-4209-85e1-56d53191d53c_400x.jpg?v=1712851792' />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sintitulo-1copia16_400x.jpg?v=1712853184' />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sin_titulo-5_400x.jpg?v=1712860299' />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sintitulo-8_18928791-f400-4789-813c-19760e836e85_400x.jpg?v=1712845437' />
+            <DraggableCard img='https://nude-project.com/cdn/shop/files/Sintitulo-2_6f188028-6eb3-427e-81f8-ccfccdc8b859_400x.jpg?v=1712839633' />
           </motion.div>
         </motion.div>
       </div>

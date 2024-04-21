@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DarkModeButton from './darkModeButton/DarkModeButton';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import AdminPanelNavbar from './AdminPanelNavBar/AdminPanelNavbar';
@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 
 const NavbarAdmin = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
-
+  useEffect(() => {
+    document.body.style.overflow = 'auto';
+  }, []);
   return (
     <nav className='bg-white -mt-1'>
       <div className='fixed w-full z-20 bg-white'>

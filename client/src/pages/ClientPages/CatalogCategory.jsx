@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
 
-const Catalog = () => {
+const CatalogCategory = () => {
   const params = useParams();
 
   const {
@@ -31,18 +31,14 @@ const Catalog = () => {
     setShowMenu,
   } = useEcommerceContext();
   const [product, setProduct] = useState([]);
-  const [catFilter, setCatFilter] = useState('all');
+  const [catFilter, setCatFilter] = useState(params.cat || 'all');
   const [sortFilter, setSortFilter] = useState(1);
-  const [collectFilter, setCollectionFilter] = useState(
-    params.collections || 'all'
-  );
+  const [collectFilter, setCollectionFilter] = useState('all');
 
   useEffect(() => {
     const objFunc = async () => {
       console.log(params);
-      // await setCollectionFilter(
-      //   params.collections === '*' ? 'all' : params.collections
-      // );
+      //   setCatFilter(params.cat === '*' ? 'all' : params.cat);
       const res = await filterProduct(catFilter, collectFilter, sortFilter);
       setProduct(res);
       await getCategory();
@@ -50,12 +46,13 @@ const Catalog = () => {
     };
     objFunc();
   }, [
-    catFilter,
-    params.collections,
-    params,
-    setCollectionFilter,
-    collectFilter,
-    sortFilter,
+    params.cat,
+    // catFilter,
+    // params.collections,
+    // params,
+    // setCollectionFilter,
+    // collectFilter,
+    // sortFilter,
   ]);
   getCollections;
   //! : setCatFilter(cat.title);
@@ -128,7 +125,11 @@ const Catalog = () => {
                       >
                         <AccordionPanel pb={4} className='text-gray-500 '>
                           <label className='capitalize gap-2 flex h-full'>
-                            <input type='radio' name='cat' />
+                            <input
+                              type='radio'
+                              name='cat'
+                              checked={params.cat === cat.title}
+                            />
                             {cat.title}
                           </label>
                         </AccordionPanel>
@@ -260,4 +261,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default CatalogCategory;

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const DraggableCard = ({ size, img }) => {
+const DraggableCard = ({ img }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -15,11 +15,11 @@ const DraggableCard = ({ size, img }) => {
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/admin');
+    navigate('/');
   };
   return (
     <div
-      className={`relative ${size === 'full' ? 'w-96' : 'w-60'}`}
+      className={`relative w-60`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       draggable='true'

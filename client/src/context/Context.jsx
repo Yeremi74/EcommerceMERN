@@ -32,6 +32,12 @@ export const ContextProvider = ({ children }) => {
 
   const [estado, setEstado] = useState(false);
 
+  const [searchState, setSearchState] = useState(false);
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  // !
+
   const getProducts = async () => {
     const res = await getProductsRequest();
     setProducts(res.data);
@@ -109,6 +115,10 @@ export const ContextProvider = ({ children }) => {
         estado,
         setEstado,
         getSearch,
+        searchState,
+        setSearchState,
+        showMenu,
+        setShowMenu,
       }}
     >
       {children}

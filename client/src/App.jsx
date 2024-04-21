@@ -10,6 +10,7 @@ import Product from './pages/ClientPages/Product';
 import Catalog from './pages/ClientPages/Catalog';
 import CollectionPages from './pages/ClientPages/CollectionPages';
 import CatalogSearch from './pages/ClientPages/CatalogSearch';
+import CatalogCategory from './pages/ClientPages/CatalogCategory';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/product/:id' element={<Product />} />
             <Route path='/catalog/:collections' element={<Catalog />} />
+            <Route path='/catalog/cat/:cat' element={<CatalogCategory />} />
             <Route path='/catalog/search/:search' element={<CatalogSearch />} />
             <Route path='/collections' element={<CollectionPages />} />
 

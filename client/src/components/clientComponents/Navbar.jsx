@@ -9,10 +9,17 @@ import { FaSearch } from 'react-icons/fa';
 import { AiOutlineShopping } from 'react-icons/ai';
 
 const Navbar = () => {
-  const { isScrollDisabled, setIsScrollDisabled } = useEcommerceContext();
+  const {
+    isScrollDisabled,
+    setIsScrollDisabled,
+    searchState,
+    setSearchState,
+    showMenu,
+    setShowMenu,
+  } = useEcommerceContext();
 
   const [isHoveringCollections, setIsHoveringCollections] = useState(false);
-  const [searchState, setSearchState] = useState(false);
+
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
 
   const handleMouseEnterCollections = () => {
@@ -35,14 +42,15 @@ const Navbar = () => {
     <nav className='h-20 bg-white -mt-1'>
       <div className='fixed h-20 w-full z-20 bg-white'>
         <div className='flex justify-between h-10 items-center px-4 bg-white relative'>
-          <div
-            className='sm:hidden block w-full'
-            onClick={() => {
-              // setIsScrollDisabled(!isScrollDisabled);
-              setActiveMobileMenu(!activeMobileMenu);
-            }}
-          >
-            <GiHamburgerMenu />
+          <div className='sm:hidden block w-full'>
+            <GiHamburgerMenu
+              className='h-7 w-7'
+              onClick={() => {
+                setIsScrollDisabled(showMenu ? true : !isScrollDisabled);
+                setActiveMobileMenu(!activeMobileMenu);
+                setShowMenu(false);
+              }}
+            />
           </div>
 
           <div className='gap-3 h-full items-center hidden sm:flex w-full'>
@@ -85,7 +93,9 @@ const Navbar = () => {
               className='h-6 w-6 sm:hidden block'
               onClick={() => {
                 setSearchState(!searchState);
-                setIsScrollDisabled(!isScrollDisabled);
+                // setIsScrollDisabled(!isScrollDisabled);
+                setIsScrollDisabled(showMenu ? true : !isScrollDisabled);
+                setShowMenu(false);
               }}
             />
             <p
@@ -123,7 +133,7 @@ const Navbar = () => {
           <section
             className={`bg-white h-screen w-screen absolute top-0 -translate-x-full flex flex-col gap-4 ${
               activeMobileMenu && 'translate-x-0'
-            } transition-all z-40`}
+            } transition-all z-50`}
           >
             <Link
               to='/catalog/*'
@@ -131,6 +141,7 @@ const Navbar = () => {
               onClick={() => {
                 setIsScrollDisabled(false);
                 setActiveMobileMenu(false);
+                setShowMenu(false);
               }}
             >
               shop
@@ -143,6 +154,7 @@ const Navbar = () => {
               onClick={() => {
                 setIsScrollDisabled(false);
                 setActiveMobileMenu(false);
+                setShowMenu(false);
               }}
             >
               colecciones
@@ -153,6 +165,7 @@ const Navbar = () => {
               onClick={() => {
                 setIsScrollDisabled(false);
                 setActiveMobileMenu(false);
+                setShowMenu(false);
               }}
             >
               admin

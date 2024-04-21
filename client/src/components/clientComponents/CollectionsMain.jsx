@@ -4,7 +4,7 @@ const CollectionsMain = () => {
   return (
     <div className='flex justify-center w-full gap-3 flex-wrap flex-col sm:flex-row p-6'>
       <Link
-        to='/'
+        to={`/catalog/cat/chaquetas`}
         className='flex-1 flex justify-center w-full sm:min-w-80 relative'
       >
         <img
@@ -13,11 +13,11 @@ const CollectionsMain = () => {
           className='hover:brightness-75'
         />
         <p className='uppercase absolute top-1/2 text-white font-bold text-2xl pointer-events-none'>
-          hoodies
+          jackets
         </p>
       </Link>
       <Link
-        to='/'
+        to={`/catalog/cat/pantalones`}
         className='flex-1 flex justify-center w-full sm:min-w-80 relative last:text-red-500'
       >
         <img
@@ -30,7 +30,7 @@ const CollectionsMain = () => {
         </p>
       </Link>
       <Link
-        to='/'
+        to={`/catalog/cat/all`}
         className='flex-1 flex justify-center w-full sm:min-w-80 relative'
       >
         <img
