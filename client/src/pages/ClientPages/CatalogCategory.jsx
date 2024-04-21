@@ -5,15 +5,15 @@ import { useEcommerceContext } from '../../context/Context';
 import Navbar from '../../components/clientComponents/Navbar';
 import { LuSettings2 } from 'react-icons/lu';
 
-// import {
-//   Accordion,
-//   AccordionItem,
-//   AccordionButton,
-//   AccordionPanel,
-//   AccordionIcon,
-//   Box,
-// } from '@chakra-ui/react';
-// import { ChakraProvider } from '@chakra-ui/react';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
+} from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const CatalogCategory = () => {
   const params = useParams();
@@ -85,7 +85,7 @@ const CatalogCategory = () => {
             } fixed top-28 sm:sticky sm:top-32  sm:block sm:w-11/12 my-0 mx-auto overflow-y-scroll sm:h-custom_navBar transition-all bg-white w-1/2 z-30 h-screen pb-52`}
           >
             <p className='px-4'>{product.length} items</p>
-            {/* <ChakraProvider>
+            <ChakraProvider>
               <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem className='py-3'>
                   <h2>
@@ -226,7 +226,7 @@ const CatalogCategory = () => {
                   </div>
                 </AccordionItem>
               </Accordion>
-            </ChakraProvider> */}
+            </ChakraProvider>
           </div>
         </div>
         {showMenu && (

@@ -34,12 +34,13 @@ const Product = () => {
   return (
     <div>
       <Navbar />
-      <InfoProduct
-        product={product}
-        sizesSelected={sizesSelected}
-        setSizesSelected={setSizesSelected}
-      />
-      <div className=''>
+      <div className='px-2 sm:px-6 gap-8 flex flex-col'>
+        <InfoProduct
+          product={product}
+          sizesSelected={sizesSelected}
+          setSizesSelected={setSizesSelected}
+        />
+
         <GridArticle products={allProduct} title='YOU MAY ALSO LIKE' />
         <DraggableCarrousel size={'full'} />
         <GridArticle products={categoryFilter} title='YOU MAY ALSO LIKE' />
