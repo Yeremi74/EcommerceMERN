@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const CollectionsMain = () => {
   return (
-    <div className='flex justify-center w-full gap-3 flex-wrap flex-col sm:flex-row p-6'>
+    <div className='flex justify-center w-full gap-3 flex-wrap flex-col sm:flex-row '>
       <Link
         to={`/catalog/cat/chaquetas`}
         className='flex-1 flex justify-center w-full sm:min-w-80 relative'

@@ -17,9 +17,9 @@ const DraggableCarrousel = () => {
 
   return (
     <div className='flex items-center w-full flex-col'>
-      <div className='w-full px-6'>
+      <div className='w-full'>
         <motion.div
-          className='w-full overflow-hidden p-5 flex '
+          className='w-full overflow-hidden flex '
           ref={slider_wrapper}
           whileTap={{ cursor: 'grabbing' }}
         >

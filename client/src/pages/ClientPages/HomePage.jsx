@@ -25,26 +25,28 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navbar />
+      <section className='h-screen'>
+        <Navbar />
 
-      <header className=''>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
-          className='sm:w-full h-screen object-cover'
-        >
-          <source
-            className='sm:w-full h-screen object-cover'
+        <header>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
-            type='video/mp4'
-            data-ly-processed='1712212206559'
-          />
-        </video>
-      </header>
-      <section>
+            className='sm:w-full h-screen object-cover'
+          >
+            <source
+              className='sm:w-full h-screen object-cover'
+              src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
+              type='video/mp4'
+              data-ly-processed='1712212206559'
+            />
+          </video>
+        </header>
+      </section>
+      <section className='sm:px-6 px-2'>
         <GridArticle products={all.slice(0, 8)} title='new in' />
         <CollectionsMain />
         <GridArticle products={pantalones} title='pantalones' />
