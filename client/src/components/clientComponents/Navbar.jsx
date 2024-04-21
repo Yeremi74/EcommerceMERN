@@ -58,7 +58,7 @@ const Navbar = () => {
               to='/catalog/*'
               className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold'
             >
-              shop
+              tienda
             </Link>
             <Link
               className={`uppercase cursor-pointer hover:text-black text-gray-600 font-bold h-full flex items-center ${
@@ -103,11 +103,11 @@ const Navbar = () => {
                 setIsScrollDisabled(!isScrollDisabled);
               }}
             >
-              search
+              buscar
             </p>
             <AiOutlineShopping className='h-6 w-6 sm:hidden block' />
             <p className='uppercase cursor-pointer hover:text-gray-600 font-bold text-black hidden sm:block'>
-              cart (0)
+              carrito (0)
             </p>
           </div>
         </div>

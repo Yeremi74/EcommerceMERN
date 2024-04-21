@@ -4,7 +4,7 @@ import Card from './Card';
 const GridArticle = ({ products, title }) => {
   // console.log(products);
   return (
-    <div>
+    <div className='min-h-screen'>
       <p className='uppercase pb-6 font-bold'>{title}</p>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center'>

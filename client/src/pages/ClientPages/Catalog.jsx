@@ -85,7 +85,7 @@ const Catalog = () => {
               showMenu ? '-left-0' : ' -left-96'
             } fixed top-28 sm:sticky sm:top-32  sm:block sm:w-11/12 my-0 mx-auto overflow-y-scroll sm:h-custom_navBar transition-all bg-white w-1/2 z-30 h-screen pb-52`}
           >
-            <p className='px-4'>{product.length} items</p>
+            <p className='px-4'>{product.length} Items</p>
             <ChakraProvider>
               <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem className='py-3'>
@@ -104,11 +104,11 @@ const Catalog = () => {
                   </h2>
                   <div className='flex flex-col'>
                     <label
-                      className='h-fit hover:font-bold'
+                      className='h-fit hover:font-bold cursor-pointer'
                       onClick={() => setCatFilter('all')}
                     >
                       <AccordionPanel pb={4} className='text-gray-500 '>
-                        <label className='capitalize gap-2 flex h-full'>
+                        <label className='capitalize gap-2 flex h-full cursor-pointer'>
                           <input
                             type='radio'
                             name='cat'
@@ -121,11 +121,11 @@ const Catalog = () => {
                     {category.map((cat) => (
                       <label
                         key={cat._id}
-                        className='h-fit hover:font-bold'
+                        className='h-fit hover:font-bold cursor-pointer'
                         onClick={() => setCatFilter(cat.title)}
                       >
                         <AccordionPanel pb={4} className='text-gray-500 '>
-                          <label className='capitalize gap-2 flex h-full'>
+                          <label className='capitalize gap-2 flex h-full cursor-pointer'>
                             <input type='radio' name='cat' />
                             {cat.title}
                           </label>
@@ -153,7 +153,7 @@ const Catalog = () => {
                     <div className='flex flex-col capitalize gap-4 text-gray-500 p-0'>
                       <label
                         onClick={() => setSortFilter(1)}
-                        className='gap-2 flex hover:font-bold'
+                        className='gap-2 flex hover:font-bold cursor-pointer'
                       >
                         <input
                           type='radio'
@@ -165,7 +165,7 @@ const Catalog = () => {
 
                       <label
                         onClick={() => setSortFilter(-1)}
-                        className='gap-2 flex hover:font-bold'
+                        className='gap-2 flex hover:font-bold cursor-pointer'
                       >
                         <input type='radio' name='price' />
                         mayor a menor
@@ -193,7 +193,7 @@ const Catalog = () => {
                       className='text-gray-500 p-0'
                       onClick={() => setCollectionFilter('all')}
                     >
-                      <label className='capitalize gap-2 flex hover:font-bold'>
+                      <label className='capitalize gap-2 flex hover:font-bold cursor-pointer'>
                         <input
                           type='radio'
                           name='coll'
@@ -211,7 +211,7 @@ const Catalog = () => {
                           className='text-gray-500 p-0'
                           onClick={() => setCollectionFilter(cat.title)}
                         >
-                          <label className='capitalize gap-2 flex hover:font-bold'>
+                          <label className='capitalize gap-2 flex hover:font-bold cursor-pointer'>
                             <input type='radio' name='coll' />
                             {cat.title == 'all'
                               ? 'todos los productos'
