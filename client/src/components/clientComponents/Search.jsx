@@ -59,7 +59,7 @@ const Search = ({ setSearchState, setIsScrollDisabled }) => {
           </div>
           {searchTextApi !== '' && (
             <div className='h-11'>
-              <GridArticle products={product} title='' />
+              <GridArticle products={product} title='' height='.' />
             </div>
           )}
         </div>
