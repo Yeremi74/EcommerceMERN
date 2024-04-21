@@ -19,6 +19,7 @@ const corsConfig = {
   origin: [
     'http://localhost:5173',
     'https://frontend-ecommercemern.onrender.com',
+    'https://frontendecommercemern.netlify.app',
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
