@@ -39,7 +39,7 @@ const Navbar = () => {
   }, [isScrollDisabled]);
 
   return (
-    <nav className='fixed h-20 w-full z-20 bg-white'>
+    <nav className='h-20 bg-white -mt-1'>
       <div className='fixed h-20 w-full z-20 bg-white'>
         <div className='flex justify-between h-10 items-center px-4 bg-white relative'>
           <div className='sm:hidden block w-full'>
