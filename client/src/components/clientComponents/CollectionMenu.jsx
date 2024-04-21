@@ -26,7 +26,7 @@ const CollectionMenu = ({ setIsHoveringCollections }) => {
       onMouseEnter={handleMouseEnterCollections}
       onMouseLeave={handleMouseLeaveCollections}
     >
-      <div className='p-6 flex flex-col'>
+      <div className='p-6 flex flex-col h-96 overflow-y-scroll'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center'>
           {collections.slice(0, 4).map((collections) => (
             <Link

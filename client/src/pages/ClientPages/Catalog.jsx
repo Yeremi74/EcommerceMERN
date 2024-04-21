@@ -76,7 +76,7 @@ const Catalog = () => {
       </div>
       <div className='flex min-h-96'>
         <div
-          className={`w-1/4 sm:relative sm:block absolute ${
+          className={`w-1/4 sm:relative sm:block absolute z-10 ${
             showMenu ? '' : ''
           }`}
         >
