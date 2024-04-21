@@ -70,9 +70,7 @@ const Navbar = () => {
             >
               colecciones
             </Link>
-            <Link className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold'>
-              stores
-            </Link>
+
             <Link
               to='/admin/products'
               className='uppercase cursor-pointer hover:text-black text-gray-600 font-bold'

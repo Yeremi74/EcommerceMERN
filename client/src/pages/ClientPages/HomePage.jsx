@@ -53,10 +53,11 @@ const HomePage = () => {
           playsInline
           style={{ height: `${adjustedHeight}px` }}
           src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
-          className='sm:w-full  object-cover'
+          className='sm:w-full object-cover object-bottom'
         >
           <source
-            className='sm:w-full  object-cover'
+            className='sm:w-full object-cover object-bottom'
+            style={{ height: `${adjustedHeight}px` }}
             src='https://cdn.shopify.com/videos/c/o/v/3e7fa3d1047f46f381e6d316f366df47.mp4'
             type='video/mp4'
             data-ly-processed='1712212206559'
