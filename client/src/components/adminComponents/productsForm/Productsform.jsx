@@ -4,7 +4,7 @@ import { FaSpinner } from 'react-icons/fa6';
 import { useEcommerceContext } from '../../../context/Context';
 import './switch.css';
 
-import Aside from '../../Aside';
+import Aside from '../Aside';
 
 const ProductsForm = () => {
   const params = useParams();

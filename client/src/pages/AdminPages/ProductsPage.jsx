@@ -3,7 +3,7 @@ import { useEcommerceContext } from '../../context/Context';
 import { Link, useParams } from 'react-router-dom';
 import TablePanelAdmin from '../../components/adminComponents/TablePanelAdmin/TablePanelAdmin';
 
-import Aside from '../../components/Aside';
+import Aside from '../../components/adminComponents/Aside';
 const ProductsPage = () => {
   const params = useParams();
   const [categoryOption, setCategory] = useState('all');
@@ -68,8 +68,7 @@ const ProductsPage = () => {
           <header className=' flex justify-between items-center p-5 rounded'>
             <Link
               to={`/admin/create/${params.id}`}
-              // className='dark:bg-gray-700 text-white p-2 rounded-md hover:bg-gray_custom-400'
-              className='font-bold text-2xl'
+              className='p-2 rounded-md bg-gray-200 hover:bg-gray-300 font-bold text-2xl'
             >
               Crear {params.id}
             </Link>

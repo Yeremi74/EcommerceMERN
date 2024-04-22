@@ -22,7 +22,7 @@ const TablePanelAdmin = ({
     getCollections,
     category,
     getCategory,
-    filterProduct,
+    // filterProduct,
   } = useEcommerceContext();
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const TablePanelAdmin = ({
                     onClick={handlePrice}
                   >
                     <p className='hidden sm:block'>Precio</p>
-                    <span className='dark:bg-gray-900 bg-gray_custom-200 text-white font-bold block p-1 cursor-pointer rounded'>
+                    <span className='bg-gray-300 text-white font-bold block p-1 cursor-pointer rounded'>
                       {sort === -1 ? <IoIosArrowUp /> : <IoIosArrowDown />}
                     </span>
                   </span>

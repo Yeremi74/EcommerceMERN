@@ -1,4 +1,5 @@
-import NavbarAdmin, { SideBarItem } from './adminComponents/NavbarAdmin';
+import { useEffect } from 'react';
+import NavbarAdmin, { SideBarItem } from './NavbarAdmin';
 import {
   BarChart3,
   Boxes,
@@ -10,7 +11,12 @@ import {
   UserCircle,
   Moon,
 } from 'lucide-react';
+import { useParams } from 'react-router-dom';
 const Aside = () => {
+  const params = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [params.id]);
   return (
     <NavbarAdmin>
       <SideBarItem

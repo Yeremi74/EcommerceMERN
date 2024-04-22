@@ -67,7 +67,7 @@ const Row = ({ article, opened, setOpened, params }) => {
   return (
     <tr
       key={article._id}
-      className='border-solid border-b border-t  dark:border-white-900 border-gray-900  text-center'
+      className='border-solid border-b border-t border-gray-300  text-center'
     >
       <td className='p-3'>
         <div className='flex items-center gap-4'>
