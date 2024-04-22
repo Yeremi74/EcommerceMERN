@@ -3,7 +3,7 @@ import { useEcommerceContext } from '../../context/Context';
 import { Link, useParams } from 'react-router-dom';
 import TablePanelAdmin from '../../components/adminComponents/TablePanelAdmin/TablePanelAdmin';
 
-import NavbarAdmin from '../../components/adminComponents/NavbarAdmin';
+import Aside from '../../components/Aside';
 const ProductsPage = () => {
   const params = useParams();
   const [categoryOption, setCategory] = useState('all');
@@ -12,12 +12,12 @@ const ProductsPage = () => {
   const [hola, setHola] = useState([]);
 
   const {
-    collections,
+    // collections,
     getCollections,
-    category,
+    // category,
     getCategory,
     filterProduct,
-    estado,
+
     setEstado,
   } = useEcommerceContext();
 
@@ -26,6 +26,7 @@ const ProductsPage = () => {
   // console.log(data[params.id.toLowerCase()]);
   useEffect(() => {
     const asyncFunc = async () => {
+      console.log('hola');
       if (params.id === 'products') {
         const res = await filterProduct(categoryOption, collection, sort);
 
@@ -46,9 +47,9 @@ const ProductsPage = () => {
     asyncFunc();
   }, [
     params.id,
-    estado,
-    category,
-    collections,
+
+    // category,
+    // collections,
     categoryOption,
     collection,
     sort,
@@ -56,25 +57,22 @@ const ProductsPage = () => {
 
   // console.log(darkMode);
   return (
-    <div>
-      <NavbarAdmin />
-
-      <div className='flex capitalize dark:bg-gray-800'>
+    <div className='flex'>
+      <Aside />
+      <div className='flex capitalize w-full'>
         {/* <div className='w-44 h-screen hidden sm:block'>
           <AdminPanelNavbar />
         </div> */}
-        <div className=' m-auto w-full my-7 sm:w-5/6  dark:bg-gray-700 bg-gray_custom-100 dark:text-white rounded-md sm:p-6 p-2 text-black mt-20'>
-          <header className=' flex justify-between items-center p-5 dark:bg-gray-800 bg-gray_custom-200 rounded'>
-            <h1 className='font-bold'>{params.id}</h1>
-
-            <div className=' flex flex-col items-center gap-4 '>
-              <Link
-                to={`/admin/create/${params.id}`}
-                className='dark:bg-gray-700 text-white p-2 rounded-md bg-gray_custom-300 hover:bg-gray_custom-400'
-              >
-                Crear {params.id}
-              </Link>
-            </div>
+        <div className='w-16'></div>
+        <div className='w-full m-auto my-0 dark:text-white rounded-md sm:p-6 p-2 text-black '>
+          <header className=' flex justify-between items-center p-5 rounded'>
+            <Link
+              to={`/admin/create/${params.id}`}
+              // className='dark:bg-gray-700 text-white p-2 rounded-md hover:bg-gray_custom-400'
+              className='font-bold text-2xl'
+            >
+              Crear {params.id}
+            </Link>
           </header>
 
           <TablePanelAdmin

@@ -28,7 +28,6 @@ const TablePanelAdmin = ({
   useEffect(() => {
     getCategory();
     getCollections();
-    // console.log(sort);
   }, []);
   // console.log(data[0]);
   // console.log(collection);
@@ -42,7 +41,7 @@ const TablePanelAdmin = ({
     setSort(-1);
   };
   return (
-    <div className='min-h-screen '>
+    <div className='min-h-screen'>
       <table className='w-full'>
         <thead className='h-16'>
           <tr>

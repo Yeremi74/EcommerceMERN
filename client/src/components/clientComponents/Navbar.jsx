@@ -38,6 +38,10 @@ const Navbar = () => {
     }
   }, [isScrollDisabled]);
 
+  useEffect(() => {
+    setIsHoveringCollections(false);
+  }, []);
+
   return (
     <nav className='h-20 bg-white -mt-1'>
       <div className='fixed h-20 w-full z-20 bg-white'>

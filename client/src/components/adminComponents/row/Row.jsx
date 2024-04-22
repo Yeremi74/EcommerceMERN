@@ -91,13 +91,17 @@ const Row = ({ article, opened, setOpened, params }) => {
       )}
       {params === 'products' && (
         <td>
-          <p
-            className={`${
-              article.available ? ' bg-green_custom-100' : 'bg-red-500'
-            } p-4 rounded-md font-bold hidden sm:table-cell`}
-          >
-            {article.available ? 'Disponible' : 'No Disponible'}
-          </p>
+          <div className='text-center'>
+            <p
+              className={`${
+                article.available
+                  ? ' bg-green_custom-100 text-green_custom-300'
+                  : 'bg-red_custom-100 text-red_custom-300'
+              } p-4 w-44 text-sm rounded-md font-bold hidden sm:table-cell`}
+            >
+              {article.available ? 'Disponible' : 'No Disponible'}
+            </p>
+          </div>
         </td>
       )}
       <td id='options'>

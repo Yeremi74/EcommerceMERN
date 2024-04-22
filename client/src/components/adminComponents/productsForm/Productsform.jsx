@@ -1,14 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
-// import * as Yup from 'yup';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-
 import { useEffect, useState } from 'react';
-// import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { FaSpinner } from 'react-icons/fa6';
-
 import { useEcommerceContext } from '../../../context/Context';
 import './switch.css';
-import NavbarAdmin from '../NavbarAdmin';
+
+import Aside from '../../Aside';
 
 const ProductsForm = () => {
   const params = useParams();
@@ -89,9 +85,9 @@ const ProductsForm = () => {
 
   return (
     <div>
-      <div className='flex capitalize dark:bg-gray-800 '>
-        <NavbarAdmin />
-        <div className='m-auto my-7 sm:w-5/6  dark:bg-gray-700 bg-gray_custom-100 rounded-md p-6 '>
+      <div className='flex capitalize '>
+        <Aside />
+        <div className='m-auto my-7 sm:w-5/6 rounded-md p-6 '>
           <form onSubmit={handleSubmit}>
             <div className='flex flex-col gap-3 items-center text-black dark:text-white'>
               <div className='flex  w-full sm:w-1/2'>
@@ -108,7 +104,7 @@ const ProductsForm = () => {
                     onChange={(e) => {
                       setProduct({ ...product, title: e.target.value });
                     }}
-                    className='dark:text-white text-black dark:bg-gray-800 h-10 p-3 rounded-lg w-full'
+                    className='dark:text-white text-black h-10 p-3 rounded-lg w-full border border-gray-400 border-solid'
                   />
                 </div>
               </div>
@@ -309,7 +305,7 @@ const ProductsForm = () => {
                 </div>
               </div>
               <div className='flex gap-4 w-full sm:w-1/2'>
-                <div className='flex flex-col gap-4 w-full'>
+                <div className='flex flex-col gap-4 w-full '>
                   <label htmlFor='category'>Categorias</label>
                   <select
                     name='category'
@@ -317,7 +313,7 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, category: e.target.value })
                     }
-                    className='dark:text-white text-black dark:bg-gray-800 h-10 rounded-lg w-full'
+                    className='dark:text-white text-black h-10 rounded-lg w-full border border-gray-400 border-solid'
                   >
                     <option value='' disabled>
                       Selecciona una categoria
@@ -337,7 +333,7 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, collectionType: e.target.value })
                     }
-                    className='dark:text-white text-black dark:bg-gray-800 h-10 rounded-lg w-full'
+                    className='dark:text-white text-black h-10 rounded-lg w-full border border-gray-400 border-solid'
                   >
                     <option value='' disabled>
                       Selecciona una coleccion
@@ -394,7 +390,7 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, price: e.target.value })
                     }
-                    className='dark:text-white text-black dark:bg-gray-800 h-10 p-3 rounded-lg w-full'
+                    className='dark:text-white text-black h-10 p-3 rounded-lg w-full border border-gray-400 border-solid'
                   />
                 </div>
                 <div className='flex flex-col gap-4 w-full '>
@@ -407,7 +403,7 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, oldprice: e.target.value })
                     }
-                    className='dark:text-white text-black dark:bg-gray-800 h-10 p-3 rounded-lg w-full'
+                    className='dark:text-white text-black h-10 p-3 rounded-lg w-full border border-gray-400 border-solid'
                   />
                 </div>
               </div>
@@ -422,13 +418,13 @@ const ProductsForm = () => {
                       setProduct({ ...product, description: e.target.value })
                     }
                     rows={6}
-                    className='dark:text-white text-black dark:bg-gray-800 p-3 rounded-lg w-full'
+                    className='dark:text-white text-black p-3 rounded-lg w-full border border-gray-400 border-solid'
                   />
                 </div>
               </div>
             </div>
-            <div className='flex dark:bg-gray-800 flex-wrap w-full sm:w-1/2 my-10 m-auto justify-center items-center gap-4 py-6 rounded bg-gray_custom-200'>
-              <div className='sm:w-2/5 bg-gray-700 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+            <div className='flex flex-wrap w-full sm:w-1/2 my-10 m-auto justify-center items-center gap-4 py-6 rounded'>
+              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
                 <input
                   type='file'
                   className='w-full'
@@ -454,7 +450,7 @@ const ProductsForm = () => {
                   <img src={product.image?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5 bg-gray-700 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
                 <input
                   type='file'
                   className='w-full '
@@ -480,7 +476,7 @@ const ProductsForm = () => {
                   <img src={product.image2?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5 bg-gray-700 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
                 <input
                   type='file'
                   className='w-full '
@@ -506,7 +502,7 @@ const ProductsForm = () => {
                   <img src={product.image3?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5 bg-gray-700 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
                 <input
                   type='file'
                   className='w-full '
@@ -532,7 +528,7 @@ const ProductsForm = () => {
                   <img src={product.image4?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5 bg-gray-700 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
                 <input
                   type='file'
                   className='w-full '
@@ -569,7 +565,7 @@ const ProductsForm = () => {
                   setEstado(false);
                 }, 1000);
               }}
-              className={`my-0 m-auto dark:bg-gray-800 block p-3 rounded-md hover:dark:bg-gray-900 transition-all disabled:cursor-not-allowed bg-gray_custom-200 text-white hover:bg-gray_custom-300
+              className={`my-0 m-auto block p-3 rounded-md hover:dark:bg-gray-900 transition-all disabled:cursor-not-allowed bg-gray_custom-200 text-white hover:bg-gray_custom-300
                 `}
             >
               {loading ? (

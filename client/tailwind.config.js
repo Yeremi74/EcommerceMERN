@@ -9,8 +9,13 @@ export default {
       },
       colors: {
         green_custom: {
-          100: '#52c441',
+          100: '#d7f5d7',
           200: '#9AE6B4',
+          300: '#48a348',
+        },
+        red_custom: {
+          100: '#f5d7d7',
+          300: '#9e3333',
         },
         gray_custom: {
           100: '#E0E0E0',

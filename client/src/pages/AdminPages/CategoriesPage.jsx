@@ -6,20 +6,19 @@ import TablePanelAdmin from '../../components/adminComponents/TablePanelAdmin/Ta
 const CategoriesPage = () => {
   const { category, getCategory } = useEcommerceContext();
   useEffect(() => {
-    getCategory();
-  }, [getCategory]);
+    // getCategory();
+    console.log('hola');
+  }, []);
 
   return (
     <div className='container'>
-      <div className='sidebar'>
-        <AdminPanelNavbar />
-      </div>
+      <div className='sidebar'>{/* <AdminPanelNavbar /> */}</div>
       <div className='content'>
         <h1>Categorias</h1>
         <div className='create'>
           <Link to='/admin/create/category'>Crear Categoria</Link>
         </div>
-        <TablePanelAdmin data={category} />
+        {/* <TablePanelAdmin data={category} /> */}
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import Catalog from './pages/ClientPages/Catalog';
 import CollectionPages from './pages/ClientPages/CollectionPages';
 import CatalogSearch from './pages/ClientPages/CatalogSearch';
 import CatalogCategory from './pages/ClientPages/CatalogCategory';
+import './App.css';
 
 function App() {
   return (
