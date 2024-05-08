@@ -17,7 +17,8 @@ const ProductsPage = () => {
     // category,
     getCategory,
     filterProduct,
-
+    getUser,
+    users,
     setEstado,
   } = useEcommerceContext();
 
@@ -26,7 +27,6 @@ const ProductsPage = () => {
   // console.log(data[params.id.toLowerCase()]);
   useEffect(() => {
     const asyncFunc = async () => {
-      console.log('hola');
       if (params.id === 'products') {
         const res = await filterProduct(categoryOption, collection, sort);
 
@@ -41,6 +41,10 @@ const ProductsPage = () => {
       if (params.id === 'Category') {
         setHola(data['category']);
         return getCategory();
+      }
+      if (params.id === 'Users') {
+        getUser();
+        setHola(users);
       }
     };
 
@@ -59,16 +63,16 @@ const ProductsPage = () => {
   return (
     <div className='flex'>
       <Aside />
-      <div className='flex capitalize w-full'>
-        {/* <div className='w-44 h-screen hidden sm:block'>
+      <div className='flex w-full'>
+        {/* <div className='hidden h-screen w-44 sm:block'>
           <AdminPanelNavbar />
         </div> */}
         <div className='w-16'></div>
-        <div className='w-full m-auto my-0 dark:text-white rounded-md sm:p-6 p-2 text-black '>
-          <header className=' flex justify-between items-center p-5 rounded'>
+        <div className='w-full p-2 m-auto my-0 text-black rounded-md dark:text-white sm:p-6 '>
+          <header className='flex items-center justify-between p-5 rounded '>
             <Link
               to={`/admin/create/${params.id}`}
-              className='p-2 rounded-md bg-gray-200 hover:bg-gray-300 font-bold text-2xl'
+              className='p-2 text-2xl font-bold bg-gray-200 rounded-md hover:bg-gray-300'
             >
               Crear {params.id}
             </Link>

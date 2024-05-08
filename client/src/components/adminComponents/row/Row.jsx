@@ -67,19 +67,33 @@ const Row = ({ article, opened, setOpened, params }) => {
   return (
     <tr
       key={article._id}
-      className='border-solid border-b border-t border-gray-300  text-center'
+      className='text-center border-t border-b border-gray-300 border-solid '
     >
+      {article.title && (
+        <td>
+          {article.title && (
+            <img
+              src={article.image?.url}
+              alt={`Imagen de ${article.title}`}
+              className='h-20 rounded-full min-w-20'
+            />
+          )}
+        </td>
+      )}
       <td className='p-3'>
-        <div className='flex items-center gap-4'>
-          <img
-            src={article.image?.url}
-            alt={`Imagen de ${article.title}`}
-            className='min-w-20 h-20 rounded-full'
-          />
-          <p>{article.title}</p>
+        <div className='flex items-center gap-4 min-h-28'>
+          <p>{article.title || article.username}</p>
         </div>
       </td>
       <td className='hidden sm:table-cell'>{article._id.slice(0, 10)}...</td>
+      {params === 'Users' && (
+        <td className='hidden sm:table-cell'>{article.email}</td>
+      )}
+
+      {params === 'Users' && (
+        <td className='hidden sm:table-cell'>{article.rol}</td>
+      )}
+
       {params === 'products' && (
         <td className='hidden sm:table-cell'>{article.category}</td>
       )}
@@ -105,7 +119,7 @@ const Row = ({ article, opened, setOpened, params }) => {
         </td>
       )}
       <td id='options'>
-        <div className='flex justify-center cursor-pointer relative w-fit my-0 mx-auto '>
+        <div className='relative flex justify-center mx-auto my-0 cursor-pointer w-fit '>
           {opened === article._id && (
             <div
               className={`absolute bg-white p-2 -top-14 -right-5 transition-opacity duration-75 ease-in flex flex-col gap-2 items-center rounded ${

@@ -4,4 +4,4 @@ import app from './app.js';
 
 connectDB();
 app.listen(3001);
-console.log(`server is running in port asd`, 3001);
+console.log(`server is running in port`, 3001);

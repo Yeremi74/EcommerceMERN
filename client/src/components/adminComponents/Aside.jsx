@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import NavbarAdmin, { SideBarItem } from './NavbarAdmin';
 import {
   BarChart3,
@@ -17,32 +17,61 @@ const Aside = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [params.id]);
+
+  const [selected, setSelected] = useState('products');
+
   return (
     <NavbarAdmin>
       <SideBarItem
         icon={<Boxes size={20} />}
         text='products'
         url='/admin/products'
+        setSelected={setSelected}
+        selected={selected}
       />
       <SideBarItem
         icon={<LayoutDashboard size={20} />}
         text='dashboard'
         url='/admin/Category'
+        setSelected={setSelected}
+        selected={selected}
       />
       <SideBarItem
         icon={<BarChart3 size={20} />}
         text='colecciones'
-        active
         url='/admin/Collections'
+        setSelected={setSelected}
+        selected={selected}
       />
-      <SideBarItem icon={<Receipt size={20} />} text='billings' />
+      <SideBarItem
+        icon={<Receipt size={20} />}
+        text='billings'
+        setSelected={setSelected}
+        selected={selected}
+      />
       <hr className='my-3' />
       {/* <SideBarItem icon={<Settings size={20} />} text='settings' /> */}
-      <SideBarItem icon={<Package size={20} />} text='orders' />
+      <SideBarItem
+        icon={<Package size={20} />}
+        text='orders'
+        setSelected={setSelected}
+        selected={selected}
+      />
       {/* <SideBarItem icon={<LifeBuoy size={20} />} text='help' /> */}
       <hr className='my-3' />
-      <SideBarItem icon={<UserCircle size={20} />} text='users' />
-      <SideBarItem icon={<Moon size={20} />} text='darkMode' />
+      <SideBarItem
+        icon={<UserCircle size={20} />}
+        text='users'
+        url='/admin/Users'
+        setSelected={setSelected}
+        selected={selected}
+      />
+      <SideBarItem
+        icon={<Moon size={20} />}
+        text='darkMode'
+        setSelected={setSelected}
+        selected={selected}
+      />
     </NavbarAdmin>
   );
 };

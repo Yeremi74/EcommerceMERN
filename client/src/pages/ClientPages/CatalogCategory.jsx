@@ -60,9 +60,9 @@ const CatalogCategory = () => {
     <div>
       <div className='relative'>
         <Navbar />
-        <div className='fixed w-full bg-white flex justify-end p-2 z-10'>
+        <div className='fixed z-10 flex justify-end w-full p-2 bg-white'>
           <p
-            className='flex items-center capitalize text-sm font-bold z-20'
+            className='z-20 flex items-center text-sm font-bold capitalize'
             onClick={() => {
               setShowMenu(!showMenu);
               setIsScrollDisabled(!isScrollDisabled);
@@ -94,7 +94,7 @@ const CatalogCategory = () => {
                         as='span'
                         flex='1'
                         textAlign='left'
-                        className='capitalize text-black font-bold'
+                        className='font-bold text-black capitalize'
                       >
                         category
                       </Box>
@@ -103,11 +103,11 @@ const CatalogCategory = () => {
                   </h2>
                   <div className='flex flex-col'>
                     <label
-                      className='h-fit hover:font-bold cursor-pointer'
+                      className='cursor-pointer h-fit hover:font-bold'
                       onClick={() => setCatFilter('all')}
                     >
                       <AccordionPanel pb={4} className='text-gray-500'>
-                        <label className='capitalize gap-2 flex h-full cursor-pointer'>
+                        <label className='flex h-full gap-2 capitalize cursor-pointer'>
                           <input
                             type='radio'
                             name='cat'
@@ -120,11 +120,11 @@ const CatalogCategory = () => {
                     {category.map((cat) => (
                       <label
                         key={cat._id}
-                        className='h-fit hover:font-bold cursor-pointer'
+                        className='cursor-pointer h-fit hover:font-bold'
                         onClick={() => setCatFilter(cat.title)}
                       >
                         <AccordionPanel pb={4} className='text-gray-500'>
-                          <label className='capitalize gap-2 flex h-full cursor-pointer'>
+                          <label className='flex h-full gap-2 capitalize cursor-pointer'>
                             <input
                               type='radio'
                               name='cat'
@@ -145,7 +145,7 @@ const CatalogCategory = () => {
                         as='span'
                         flex='1'
                         textAlign='left'
-                        className='capitalize font-bold'
+                        className='font-bold capitalize'
                       >
                         precio
                       </Box>
@@ -153,10 +153,10 @@ const CatalogCategory = () => {
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    <div className='flex flex-col capitalize gap-4 text-gray-500 p-0'>
+                    <div className='flex flex-col gap-4 p-0 text-gray-500 capitalize'>
                       <label
                         onClick={() => setSortFilter(1)}
-                        className='gap-2 flex hover:font-bold cursor-pointer'
+                        className='flex gap-2 cursor-pointer hover:font-bold'
                       >
                         <input
                           type='radio'
@@ -168,7 +168,7 @@ const CatalogCategory = () => {
 
                       <label
                         onClick={() => setSortFilter(-1)}
-                        className='gap-2 flex hover:font-bold cursor-pointer'
+                        className='flex gap-2 cursor-pointer hover:font-bold'
                       >
                         <input type='radio' name='price' />
                         mayor a menor
@@ -183,7 +183,7 @@ const CatalogCategory = () => {
                         as='span'
                         flex='1'
                         textAlign='left'
-                        className='capitalize font-bold'
+                        className='font-bold capitalize'
                       >
                         coleccion
                       </Box>
@@ -193,10 +193,10 @@ const CatalogCategory = () => {
                   <div className='flex flex-col'>
                     <AccordionPanel
                       pb={4}
-                      className='text-gray-500 p-0 cursor-pointer'
+                      className='p-0 text-gray-500 cursor-pointer'
                       onClick={() => setCollectionFilter('all')}
                     >
-                      <label className='capitalize gap-2 flex hover:font-bold cursor-pointer'>
+                      <label className='flex gap-2 capitalize cursor-pointer hover:font-bold'>
                         <input
                           type='radio'
                           name='coll'
@@ -211,10 +211,10 @@ const CatalogCategory = () => {
                       <div key={cat._id}>
                         <AccordionPanel
                           pb={4}
-                          className='text-gray-500 p-0'
+                          className='p-0 text-gray-500'
                           onClick={() => setCollectionFilter(cat.title)}
                         >
-                          <label className='capitalize gap-2 flex hover:font-bold cursor-pointer'>
+                          <label className='flex gap-2 capitalize cursor-pointer hover:font-bold'>
                             <input type='radio' name='coll' />
                             {cat.title == 'all'
                               ? 'todos los productos'
@@ -231,7 +231,7 @@ const CatalogCategory = () => {
         </div>
         {showMenu && (
           <div
-            className='bg-custom_transparent fixed w-screen h-screen'
+            className='fixed w-screen h-screen bg-custom_transparent'
             onClick={() => {
               setShowMenu(!showMenu);
               setIsScrollDisabled(!isScrollDisabled);
@@ -247,8 +247,8 @@ const CatalogCategory = () => {
           }
         >
           {product.length == 0 ? (
-            <div className='uppercase font-bold flex flex-col items-center my-0 mx-auto'>
-              <p className='my-0 mx-auto'>
+            <div className='flex flex-col items-center mx-auto my-0 font-bold uppercase'>
+              <p className='mx-auto my-0'>
                 no hay productos <span>:(</span>
               </p>
             </div>

@@ -4,6 +4,6 @@ dotenv.config();
 
 export const MONGODB_URI = process.env.MONGODB_URI;
 
-// process.env.MONGODB_URI || 'mongodb://localhost/ecommercemern';
-
 export const PORT = process.env.PORT || 4000;
+
+export const TOKEN_SECRET = 'some secret key';

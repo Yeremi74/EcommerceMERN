@@ -11,6 +11,7 @@ import {
 } from '../api/products';
 import { getCollectionRequest } from '../api/colleciones';
 import { getCategoryRequest } from '../api/category';
+import { getUsersRequest } from '../api/auth';
 
 const context = createContext();
 
@@ -24,6 +25,7 @@ export const ContextProvider = ({ children }) => {
   const [collections, setCollections] = useState([]);
   const [category, setCategory] = useState([]);
   const [isScrollDisabled, setIsScrollDisabled] = useState(false);
+  const [users, setUsers] = useState([]);
 
   const [darkMode, setDarkMode] = useState(() => {
     const storedDarkMode = localStorage.getItem('darkMode');
@@ -94,6 +96,12 @@ export const ContextProvider = ({ children }) => {
     return res.data;
   };
 
+  const getUser = async () => {
+    const res = await getUsersRequest();
+    setUsers(res.data);
+    console.log(res);
+  };
+
   return (
     <context.Provider
       value={{
@@ -119,6 +127,9 @@ export const ContextProvider = ({ children }) => {
         setSearchState,
         showMenu,
         setShowMenu,
+        getUser,
+        users,
+        setUsers,
       }}
     >
       {children}

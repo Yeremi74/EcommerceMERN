@@ -45,65 +45,25 @@ const TablePanelAdmin = ({
       <table className='w-full'>
         <thead className='h-16'>
           <tr>
-            <th className=''>Nombre</th>
+            {params !== 'Users' && <th className='text-left'>Imagen</th>}
+            <th className='text-left'>Nombre</th>
             <th className='hidden sm:table-cell'>ID</th>
+            {params === 'Users' && <th>Email</th>}
+            {params === 'Users' && <th>Rol</th>}
             {params === 'products' && (
-              <>
-                <th>
-                  <div className='category hidden sm:block'>
-                    <select
-                      className='text-gray-600 w-full'
-                      name='category'
-                      onChange={(e) => setCategory(e.target.value)}
-                    >
-                      <option value='all' className='text-gray-600'>
-                        Todas las categorias
-                      </option>
-                      {category.map((category) => (
-                        <option value={category.title} key={category._id}>
-                          {category.title.toUpperCase()}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </th>
-                <th>
-                  <div className='category hidden sm:table-cell'>
-                    <select
-                      className='text-gray-600 w-full'
-                      name='collections'
-                      onChange={(e) => setCollection(e.target.value)}
-                    >
-                      <option value='all' className='dark:text-gray-600'>
-                        Todas las colecciones
-                      </option>
-                      {collections.map((collections) => (
-                        <option value={collections.title} key={collections._id}>
-                          {collections.title.toUpperCase()}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </th>
-                <th className='price hidden sm:table-cell'>
-                  <span
-                    className='flex items-center gap-3 px-3'
-                    onClick={handlePrice}
-                  >
-                    <p className='hidden sm:block'>Precio</p>
-                    <span className='bg-gray-300 text-white font-bold block p-1 cursor-pointer rounded'>
-                      {sort === -1 ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                    </span>
-                  </span>
-                </th>
-                {/* <th>Tipo</th> */}
-                <th className='hidden sm:table-cell'>Disponible</th>
-              </>
+              <ProductTable
+                category={category}
+                setCategory={setCategory}
+                setCollection={setCollection}
+                handlePrice={handlePrice}
+                collections={collections}
+                sort={sort}
+              />
             )}
             <th>Opciones</th>
           </tr>
         </thead>
-        <tbody className=' '>
+        <tbody className=''>
           {data.map((article) => (
             <Row
               article={article}
@@ -124,3 +84,68 @@ TablePanelAdmin.propTypes = {
 };
 
 export default TablePanelAdmin;
+// !
+// !
+// !
+// !
+// !
+// !
+const ProductTable = ({
+  category,
+  setCategory,
+  setCollection,
+  handlePrice,
+  collections,
+  sort,
+}) => {
+  return (
+    <>
+      <th>
+        <div className='hidden category sm:block'>
+          <select
+            className='w-full text-gray-600'
+            name='category'
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value='all' className='text-gray-600'>
+              Todas las categorias
+            </option>
+            {category.map((category) => (
+              <option value={category.title} key={category._id}>
+                {category.title.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
+      </th>
+      <th>
+        <div className='hidden category sm:table-cell'>
+          <select
+            className='w-full text-gray-600'
+            name='collections'
+            onChange={(e) => setCollection(e.target.value)}
+          >
+            <option value='all' className='dark:text-gray-600'>
+              Todas las colecciones
+            </option>
+            {collections.map((collections) => (
+              <option value={collections.title} key={collections._id}>
+                {collections.title.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
+      </th>
+      <th className='hidden price sm:table-cell'>
+        <span className='flex items-center gap-3 px-3' onClick={handlePrice}>
+          <p className='hidden sm:block'>Precio</p>
+          <span className='block p-1 font-bold text-white bg-gray-300 rounded cursor-pointer'>
+            {sort === -1 ? <IoIosArrowUp /> : <IoIosArrowDown />}
+          </span>
+        </span>
+      </th>
+      {/* <th>Tipo</th> */}
+      <th className='hidden sm:table-cell'>Disponible</th>
+    </>
+  );
+};

@@ -20,7 +20,7 @@ export const deleteRequest = async (params, id) =>
 // !GET
 export const getUniqueProductRequest = async (params, id) =>
   await axios.get(
-    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
+    `https://backend-ecommercemern.onrender.com/api/${params.toLowerCase()}/${id}`
   );
 
 // !POST

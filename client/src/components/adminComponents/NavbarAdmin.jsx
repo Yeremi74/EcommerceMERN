@@ -10,24 +10,24 @@
 //     document.body.style.overflow = 'auto';
 //   }, []);
 //   return (
-//     <nav className='bg-white -mt-1'>
-//       <div className='fixed w-full z-20 bg-white'>
-//         <div className='flex justify-between p-4 items-center dark:bg-gray-900 dark:text-white bg-white relative'>
+//     <nav className='-mt-1 bg-white'>
+//       <div className='fixed z-20 w-full bg-white'>
+//         <div className='relative flex items-center justify-between p-4 bg-white dark:bg-gray-900 dark:text-white'>
 //           <div
 //             className='block w-full '
 //             onClick={() => {
 //               setActiveMobileMenu(!activeMobileMenu);
 //             }}
 //           >
-//             <GiHamburgerMenu className='cursor-pointer h-12 w-12' />
+//             <GiHamburgerMenu className='w-12 h-12 cursor-pointer' />
 //           </div>
 
-//           <div className='w-full  justify-center flex'>
-//             <Link to='/' className='uppercase cursor-pointer font-bold '>
+//           <div className='flex justify-center w-full'>
+//             <Link to='/' className='font-bold uppercase cursor-pointer '>
 //               Inicio
 //             </Link>
 //           </div>
-//           <div className='w-full  flex justify-end'>
+//           <div className='flex justify-end w-full'>
 //             <DarkModeButton />
 //           </div>
 //         </div>
@@ -71,8 +71,8 @@ const NavbarAdmin = ({ children }) => {
   return (
     <div>
       <aside className={`h-screen fixed z-40 ${expanded ? 'w-fit' : 'w-fit'}`}>
-        <nav className='h-full flex flex-col bg-white border-r shadow-sm'>
-          <div className='p-4 pb-2 flex justify-between items-center'>
+        <nav className='flex flex-col h-full bg-white border-r shadow-sm'>
+          <div className='flex items-center justify-between p-4 pb-2'>
             <Link to='/'>
               <img
                 src='https://img.logoipsum.com/243.svg'
@@ -94,7 +94,7 @@ const NavbarAdmin = ({ children }) => {
             <ul className='flex-1 px-3'>{children}</ul>
           </SidebarContext.Provider>
 
-          <div className='border-t flex p-3'>
+          <div className='flex p-3 border-t'>
             <img
               src='https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true'
               alt=''
@@ -117,7 +117,7 @@ const NavbarAdmin = ({ children }) => {
       </aside>
       {expanded && (
         <div
-          className='bg-custom_transparent fixed top-0 h-screen w-screen z-20'
+          className='fixed top-0 z-20 w-screen h-screen bg-custom_transparent'
           onClick={() => setExpanded(false)}
         ></div>
       )}
@@ -125,7 +125,14 @@ const NavbarAdmin = ({ children }) => {
   );
 };
 
-export function SideBarItem({ icon, text, active, url }) {
+export function SideBarItem({
+  icon,
+  text,
+  active,
+  url,
+  selected,
+  setSelected,
+}) {
   const { expanded } = useContext(SidebarContext);
 
   return (
@@ -135,20 +142,21 @@ export function SideBarItem({ icon, text, active, url }) {
         font-medium rounded-md cursor-pointer
         transition-colors group 
         ${
-          active
+          selected === text
             ? 'bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800'
             : 'hover:bg-indigo-50 text-gray-600'
         }
     `}
     >
       <Link
+        onClick={() => setSelected(text)}
         to={url}
         className={`
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
         transition-colors group 
         ${
-          active
+          selected === text
             ? 'bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800'
             : 'hover:bg-indigo-50 text-gray-600'
         }

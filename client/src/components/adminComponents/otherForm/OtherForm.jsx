@@ -38,7 +38,10 @@ const OtherForm = () => {
   useEffect(() => {
     (async () => {
       if (params.product) {
-        const product = await getUniqueProduct(params.id, params.product);
+        const product = await getUniqueProduct(
+          params.id.toLowerCase(),
+          params.product
+        );
         setProduct(product.data);
       }
     })();
@@ -71,29 +74,29 @@ const OtherForm = () => {
     <div className='flex capitalize '>
       <Aside />
 
-      <div className='m-auto my-7 sm:w-5/6 rounded-md p-6 '>
+      <div className='p-6 m-auto rounded-md my-7 sm:w-5/6 '>
         <form onSubmit={handleSubmit}>
-          <div className='flex flex-col gap-3 items-center text-black dark:text-white'>
+          <div className='flex flex-col items-center gap-3 text-black dark:text-white'>
             <div className='flex w-full sm:w-1/2'>
-              <div className='flex flex-col gap-4 w-full'>
+              <div className='flex flex-col w-full gap-4'>
                 <label htmlFor='title'>
                   Titulo
-                  <span className='text-red-500 font-bold text-2xl'>*</span>
+                  <span className='text-2xl font-bold text-red-500'>*</span>
                 </label>
                 <input
                   type='text'
                   name='title'
                   placeholder='Titulo'
-                  value={product.title || ''}
+                  value={product.title || product.username || ''}
                   onChange={(e) => {
                     setProduct({ ...product, title: e.target.value });
                   }}
-                  className='dark:text-white text-black  h-10 p-3 rounded-lg w-full border border-gray-400 border-solid'
+                  className='w-full h-10 p-3 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                 />
               </div>
             </div>
-            <div className='flex  flex-wrap w-full sm:w-1/2 my-10 m-auto justify-center items-center gap-4 py-6 rounded px-2'>
-              <div className='sm:w-2/5 text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+            <div className='flex flex-wrap items-center justify-center w-full gap-4 px-2 py-6 m-auto my-10 rounded sm:w-1/2'>
+              <div className='flex flex-col gap-3 p-2 overflow-hidden text-white rounded-lg sm:w-2/5'>
                 <input
                   type='file'
                   className='w-full'
