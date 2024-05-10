@@ -115,13 +115,13 @@ export const users = async (req, res) => {
 
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
-  if (!token) return res.status(401).json({ message: 'Unauthorized' });
+  if (!token) return res.status(401).json({ message: 'Unauthorized 1' });
 
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
-    if (err) return res.status(401).json({ message: 'Unauthorized' });
+    if (err) return res.status(401).json({ message: 'Unauthorized2' });
 
     const userFound = await User.findById(user.id);
-    if (!userFound) return res.status(401).json({ message: 'Unauthorized' });
+    if (!userFound) return res.status(401).json({ message: 'Unauthorized3' });
 
     return res.json({
       id: userFound._id,
