@@ -11,7 +11,11 @@ import {
 } from '../api/products';
 import { getCollectionRequest } from '../api/colleciones';
 import { getCategoryRequest } from '../api/category';
-import { getUsersRequest } from '../api/auth';
+import {
+  getUniqueRequest,
+  getUsersRequest,
+  updateUserRequest,
+} from '../api/auth';
 
 const context = createContext();
 
@@ -37,7 +41,7 @@ export const ContextProvider = ({ children }) => {
   const [searchState, setSearchState] = useState(false);
 
   const [showMenu, setShowMenu] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   // !
 
   const getProducts = async () => {
@@ -49,11 +53,13 @@ export const ContextProvider = ({ children }) => {
   const getCollections = async () => {
     const res = await getCollectionRequest();
     setCollections(res.data);
+    return res.data;
   };
 
   const getCategory = async () => {
     const res = await getCategoryRequest();
     setCategory(res.data);
+    return res.data;
   };
 
   const getSearch = async (searchText) => {
@@ -74,7 +80,12 @@ export const ContextProvider = ({ children }) => {
   };
 
   const deleteProduct = async (params, id) => {
-    await deleteRequest(params, id);
+    try {
+      console.log(params, id);
+      await deleteRequest(params, id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getUniqueProduct = async (params, id) => {
@@ -83,7 +94,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const updateProduct = async (params, id, product) => {
-    await updateProductRequest(params, id, product);
+    await updateProductRequest(params.toLowerCase(), id, product);
   };
 
   const filterProduct = async (cat, collec, sort) => {
@@ -96,10 +107,25 @@ export const ContextProvider = ({ children }) => {
     return res.data;
   };
 
-  const getUser = async () => {
-    const res = await getUsersRequest();
-    setUsers(res.data);
-    console.log(res);
+  const getUsers = async () => {
+    try {
+      const res = await getUsersRequest();
+      setUsers(res.data);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getUser = async (id) => {
+    const res = await getUniqueRequest(id);
+    return res.data;
+  };
+
+  const updateUser = async (id, user) => {
+    const res = await updateUserRequest(id, user);
+
+    return res.data;
   };
 
   return (
@@ -127,9 +153,11 @@ export const ContextProvider = ({ children }) => {
         setSearchState,
         showMenu,
         setShowMenu,
-        getUser,
+        getUsers,
         users,
         setUsers,
+        getUser,
+        updateUser,
       }}
     >
       {children}

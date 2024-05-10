@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const LoginPage = () => {
   const {
@@ -12,14 +12,22 @@ const LoginPage = () => {
 
   const { signIn, error: signInError, isAuthenticated } = useAuth();
 
+  const [state, setState] = useState(false);
+
   const onSubmit = handleSubmit((data) => {
     signIn(data);
-    if (isAuthenticated) navigate('/');
   });
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setState(true);
+    if (isAuthenticated && state === true && signInError.length === 0) {
+      navigate('/');
+    }
+  }, [isAuthenticated, signInError]);
+
   return (
-    <div className='flex flex-col justify-center flex-1 min-h-screen items-centerlg:px-8'>
+    <div className='flex flex-col items-center justify-center flex-1 w-4/5 min-h-screen mx-auto lg:px-8'>
       <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
         <img
           className='w-auto h-10 mx-auto'
@@ -31,7 +39,7 @@ const LoginPage = () => {
         </h2>
       </div>
 
-      <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
+      <div className='w-full mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
         {signInError.map((error, i) => (
           <div
             key={i}

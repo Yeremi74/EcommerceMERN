@@ -9,7 +9,7 @@ const ProductsPage = () => {
   const [categoryOption, setCategory] = useState('all');
   const [collection, setCollection] = useState('all');
   const [sort, setSort] = useState(-1);
-  const [hola, setHola] = useState([]);
+  const [data, setData] = useState([]);
 
   const {
     // collections,
@@ -17,57 +17,50 @@ const ProductsPage = () => {
     // category,
     getCategory,
     filterProduct,
-    getUser,
-    users,
+    getUsers,
+    estado,
     setEstado,
   } = useEcommerceContext();
 
-  const data = useEcommerceContext();
+  const dataContext = useEcommerceContext();
 
-  // console.log(data[params.id.toLowerCase()]);
+  // console.log(dataContext[params.id.toLowerCase()]);
   useEffect(() => {
     const asyncFunc = async () => {
       if (params.id === 'products') {
         const res = await filterProduct(categoryOption, collection, sort);
-
-        setHola(res);
+        setData(res);
       }
 
       if (params.id === 'Collections') {
-        setHola(data['collections']);
-        return getCollections();
+        const res = await getCollections();
+        setData(res);
+
+        return;
       }
 
       if (params.id === 'Category') {
-        setHola(data['category']);
-        return getCategory();
+        const res = await getCategory();
+        setData(res);
+
+        return;
       }
       if (params.id === 'Users') {
-        getUser();
-        setHola(users);
+        const res = await getUsers();
+        setData(res);
+        return;
       }
     };
 
     asyncFunc();
-  }, [
-    params.id,
-
-    // category,
-    // collections,
-    categoryOption,
-    collection,
-    sort,
-  ]);
+  }, [params.id, params, categoryOption, collection, sort]);
 
   // console.log(darkMode);
   return (
     <div className='flex'>
       <Aside />
       <div className='flex w-full'>
-        {/* <div className='hidden h-screen w-44 sm:block'>
-          <AdminPanelNavbar />
-        </div> */}
-        <div className='w-16'></div>
+        <div className='w-20 sm:w-16'></div>
         <div className='w-full p-2 m-auto my-0 text-black rounded-md dark:text-white sm:p-6 '>
           <header className='flex items-center justify-between p-5 rounded '>
             <Link
@@ -79,7 +72,7 @@ const ProductsPage = () => {
           </header>
 
           <TablePanelAdmin
-            data={hola}
+            data={data}
             setCategory={setCategory}
             setCollection={setCollection}
             setSort={setSort}

@@ -22,7 +22,7 @@ const BtnInfoProduct = ({
     {!product.sizes ||
       !product.sizes[0] ||
       (!product.sizes[0].split(',').includes(talla) && (
-        <div className='before absolute top-1/2 left-0 w-full h-custom bg-gray-900' />
+        <div className='absolute left-0 w-full bg-gray-900 before top-1/2 h-custom' />
       ))}
     {talla}
   </button>;
@@ -49,14 +49,14 @@ const BtnInfoProduct = ({
         <span id='size-choice-1-label'>{talla}</span>
 
         <span
-          className='pointer-events-none absolute -inset-px rounded-md'
+          className='absolute rounded-md pointer-events-none -inset-px'
           aria-hidden='true'
         ></span>
       </label>
     );
 
   return (
-    <label className='group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-not-allowed bg-gray-50 text-gray-200'>
+    <label className='relative flex items-center justify-center px-4 py-3 text-sm font-medium text-gray-200 uppercase border rounded-md cursor-not-allowed group hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 bg-gray-50'>
       <input
         type='radio'
         name='size-choice'
@@ -68,10 +68,10 @@ const BtnInfoProduct = ({
       <span id='size-choice-0-label'>{talla}</span>
       <span
         aria-hidden='true'
-        className='pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200'
+        className='absolute border-2 border-gray-200 rounded-md pointer-events-none -inset-px'
       >
         <svg
-          className='absolute inset-0 h-full w-full stroke-2 text-gray-200'
+          className='absolute inset-0 w-full h-full text-gray-200 stroke-2'
           viewBox='0 0 100 100'
           preserveAspectRatio='none'
           stroke='currentColor'

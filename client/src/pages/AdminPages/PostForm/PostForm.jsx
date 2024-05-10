@@ -10,7 +10,7 @@ import OtherForm from '../../../components/adminComponents/otherForm/OtherForm';
 
 const PostForm = () => {
   const params = useParams();
-  console.log(params.id);
+
   const {
     createProduct,
     getUniqueProduct,
@@ -41,16 +41,16 @@ const PostForm = () => {
     image5: null,
   });
   // console.log(product);
-  useEffect(() => {
-    (async () => {
-      if (params.product) {
-        const product = await getUniqueProduct(params.id, params.product);
-        setProduct(product.data);
-      }
-    })();
-    getCategory();
-    getCollections();
-  }, [params.product, params.id]);
+  // useEffect(() => {
+  //   (async () => {
+  //     if (params.product) {
+  //       const product = await getUniqueProduct(params.id, params.product);
+  //       setProduct(product.data);
+  //     }
+  //   })();
+  //   getCategory();
+  //   getCollections();
+  // }, [params.product, params.id]);
   // console.log(product.sizes);
   // const sizesJoined = product.sizes.flatMap((size) => size.split(','));
   // console.log(sizesJoined);

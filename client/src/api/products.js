@@ -4,23 +4,25 @@ import axios from 'axios';
 
 export const getSearchProductRequest = async (searchText) => {
   return await axios.get(
-    `https://backend-ecommercemern.onrender.com/api/products/catalog/${searchText}`
+    `https://backend-ecommercemern.onrender.com/products/catalog/${searchText}`
   );
 };
 
 export const getProductsRequest = async () =>
-  await axios.get(`https://backend-ecommercemern.onrender.com/api/products`);
+  await axios.get(`https://backend-ecommercemern.onrender.com/products`);
 
 // !DELETE
-export const deleteRequest = async (params, id) =>
+export const deleteRequest = async (params, id) => {
+  console.log(`https://backend-ecommercemern.onrender.com/${params}/${id}`);
   await axios.delete(
-    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`
+    `https://backend-ecommercemern.onrender.com/${params}/${id}`
   );
+};
 
 // !GET
 export const getUniqueProductRequest = async (params, id) =>
   await axios.get(
-    `https://backend-ecommercemern.onrender.com/api/${params.toLowerCase()}/${id}`
+    `https://backend-ecommercemern.onrender.com/${params.toLowerCase()}/${id}`
   );
 
 // !POST
@@ -33,7 +35,7 @@ export const createRequest = async (product, id) => {
   }
 
   return await axios.post(
-    `https://backend-ecommercemern.onrender.com/api/${id}`,
+    `https://backend-ecommercemern.onrender.com/${id}`,
     form,
     {
       headers: {
@@ -45,7 +47,7 @@ export const createRequest = async (product, id) => {
 
 export const filterRequest = async (cat, collec, sort) => {
   return await axios.get(
-    `https://backend-ecommercemern.onrender.com/api/products/${cat}/${collec}/${sort}`
+    `https://backend-ecommercemern.onrender.com/products/${cat}/${collec}/${sort}`
   );
 };
 
@@ -73,7 +75,7 @@ export const updateProductRequest = async (params, id, newFields) => {
     }
   }
   return await axios.put(
-    `https://backend-ecommercemern.onrender.com/api/${params}/${id}`,
+    `https://backend-ecommercemern.onrender.com/${params}/${id}`,
     form2,
     {
       headers: {

@@ -144,3 +144,39 @@ export const getUniqueUser = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const updateUser = async (req, res) => {
+  try {
+    const { email, password, username, rol } = req.body;
+    console.log(password);
+    // const userFound = await User.findOne({ email });
+    // if (userFound) return res.status(400).json(['The email already exists']);
+
+    const passwordHash = await bcryptjs.hash(password, 10);
+    console.log(passwordHash);
+
+    const newUser = {
+      username,
+      email,
+      password: passwordHash,
+      rol,
+    };
+
+    const userUpdated = await User.findByIdAndUpdate(req.params.id, newUser, {
+      new: true,
+    });
+    res.json(userUpdated);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  try {
+    const productRemoved = await User.findByIdAndDelete(req.params.id);
+    if (!productRemoved) return res.json('ya eliminado');
+    res.json('eliminado');
+  } catch (error) {
+    console.log(error);
+  }
+};

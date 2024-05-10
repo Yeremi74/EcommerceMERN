@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import './row.css';
 
 const Row = ({ article, opened, setOpened, params }) => {
-  const { deleteProduct, setEstado } = useEcommerceContext();
+  const { deleteProduct, setEstado, setUsers } = useEcommerceContext();
   const location = useLocation();
   const path = location.pathname;
   const rutaEspecifica = path.substring('/admin/'.length);
@@ -32,9 +32,13 @@ const Row = ({ article, opened, setOpened, params }) => {
             <button
               className='p-1 uppercase bg-red-500 hover:bg-red-700'
               onClick={() => {
-                deleteProduct(rutaEspecifica, article._id);
+                if (article.rol !== 'admin') {
+                  deleteProduct(rutaEspecifica.toLowerCase(), article._id);
+                }
+
                 toast.dismiss(t.id);
                 setEstado(true);
+                setUsers();
                 setTimeout(() => {
                   setEstado(false);
                 }, 1000);
@@ -82,17 +86,15 @@ const Row = ({ article, opened, setOpened, params }) => {
       )}
       <td className='p-3'>
         <div className='flex items-center gap-4 min-h-28'>
-          <p>{article.title || article.username}</p>
+          <p>{article.username || article.title.slice(0, 15)}</p>
         </div>
       </td>
       <td className='hidden sm:table-cell'>{article._id.slice(0, 10)}...</td>
       {params === 'Users' && (
-        <td className='hidden sm:table-cell'>{article.email}</td>
+        <td className=' sm:table-cell'>{article.email?.slice(0, 7)}...</td>
       )}
 
-      {params === 'Users' && (
-        <td className='hidden sm:table-cell'>{article.rol}</td>
-      )}
+      {params === 'Users' && <td className=' sm:table-cell'>{article?.rol}</td>}
 
       {params === 'products' && (
         <td className='hidden sm:table-cell'>{article.category}</td>

@@ -1,10 +1,12 @@
 import { Router } from 'express';
 import {
+  deleteUser,
   getUniqueUser,
   login,
   logout,
   profile,
   register,
+  updateUser,
   users,
   verifyToken,
 } from '../controllers/auth.controller.js';
@@ -21,6 +23,8 @@ router.post('/logout', logout);
 router.get('/profile', authRequired, roleRequired, profile);
 router.get('/users', authRequired, users);
 router.get('/users/:id', authRequired, getUniqueUser);
+router.put('/users/:id', authRequired, updateUser);
+router.delete('/users/:id', deleteUser);
 
 router.get('/verify', verifyToken);
 

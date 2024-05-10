@@ -18,7 +18,7 @@ const Aside = () => {
     window.scrollTo(0, 0);
   }, [params.id]);
 
-  const [selected, setSelected] = useState('products');
+  const [selected, setSelected] = useState('');
 
   return (
     <NavbarAdmin>
@@ -31,7 +31,7 @@ const Aside = () => {
       />
       <SideBarItem
         icon={<LayoutDashboard size={20} />}
-        text='dashboard'
+        text='categorias'
         url='/admin/Category'
         setSelected={setSelected}
         selected={selected}

@@ -13,16 +13,15 @@ const RegisterPage = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isAuthenticated) navigate('/');
-  }, [isAuthenticated]);
+  useEffect(() => {}, [isAuthenticated]);
 
   const onSubmit = handleSubmit(async (values) => {
     signup(values);
+    if (isAuthenticated) navigate('/');
   });
 
   return (
-    <div className='flex flex-col justify-center flex-1 min-h-screen items-centerlg:px-8'>
+    <div className='flex flex-col items-center justify-center flex-1 w-4/5 min-h-screen mx-auto lg:px-8'>
       <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
         <img
           className='w-auto h-10 mx-auto'
@@ -34,7 +33,7 @@ const RegisterPage = () => {
         </h2>
       </div>
 
-      <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
+      <div className='w-full mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
         {RegisterError.map((error, i) => (
           <div
             key={i}

@@ -16,42 +16,45 @@ import LoginPage from './pages/ClientPages/LoginPage';
 import RegisterPage from './pages/ClientPages/RegisterPage';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoutes from './pages/ClientPages/ProtectedRoutes';
+import { CartProvider } from './context/CartContex';
 
 function App() {
   return (
     <div>
-      <AuthProvider>
-        <BrowserRouter>
-          <ContextProvider>
-            <Routes>
-              <Route path='/login' element={<LoginPage />} />
-              <Route path='/register' element={<RegisterPage />} />
+      <CartProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <ContextProvider>
+              <Routes>
+                <Route path='/login' element={<LoginPage />} />
+                <Route path='/register' element={<RegisterPage />} />
 
-              <Route path='/' element={<HomePage />} />
-              <Route path='/product/:id' element={<Product />} />
-              <Route path='/catalog/:collections' element={<Catalog />} />
-              <Route path='/catalog/cat/:cat' element={<CatalogCategory />} />
-              <Route
-                path='/catalog/search/:search'
-                element={<CatalogSearch />}
-              />
-              <Route path='/collections' element={<CollectionPages />} />
-
-              <Route element={<ProtectedRoutes />}>
-                <Route path='/admin' element={<AdminPage />} />
-                <Route path='/admin/:id' element={<ProductsPage />} />
-                <Route path='/admin/create/:id' element={<PostForm />} />
+                <Route path='/' element={<HomePage />} />
+                <Route path='/product/:id' element={<Product />} />
+                <Route path='/catalog/:collections' element={<Catalog />} />
+                <Route path='/catalog/cat/:cat' element={<CatalogCategory />} />
                 <Route
-                  path='/admin/create/:id/:product'
-                  element={<PostForm />}
+                  path='/catalog/search/:search'
+                  element={<CatalogSearch />}
                 />
-                <Route path='*' element={<NotFound />} />
-              </Route>
-            </Routes>
-            <Toaster />
-          </ContextProvider>
-        </BrowserRouter>
-      </AuthProvider>
+                <Route path='/collections' element={<CollectionPages />} />
+
+                <Route element={<ProtectedRoutes />}>
+                  <Route path='/admin' element={<AdminPage />} />
+                  <Route path='/admin/:id' element={<ProductsPage />} />
+                  <Route path='/admin/create/:id' element={<PostForm />} />
+                  <Route
+                    path='/admin/create/:id/:product'
+                    element={<PostForm />}
+                  />
+                  <Route path='*' element={<NotFound />} />
+                </Route>
+              </Routes>
+              <Toaster />
+            </ContextProvider>
+          </BrowserRouter>
+        </AuthProvider>
+      </CartProvider>
     </div>
   );
 }

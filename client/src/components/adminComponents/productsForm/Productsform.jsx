@@ -68,7 +68,7 @@ const ProductsForm = () => {
 
       navigate(`/admin/${params.id}`);
     } catch (error) {
-      console.log();
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -87,14 +87,15 @@ const ProductsForm = () => {
     <div>
       <div className='flex capitalize '>
         <Aside />
-        <div className='m-auto my-7 sm:w-5/6 rounded-md p-6 '>
+        <div className='w-20 sm:w-16'></div>
+        <div className='flex w-full pr-2 my-7 sm:pr-0'>
           <form onSubmit={handleSubmit}>
-            <div className='flex flex-col gap-3 items-center text-black dark:text-white'>
-              <div className='flex  w-full sm:w-1/2'>
-                <div className='flex flex-col gap-4 w-full'>
+            <div className='flex flex-col items-center w-full gap-3 pl-2 text-black dark:text-white'>
+              <div className='flex w-full sm:w-1/2'>
+                <div className='flex flex-col w-full gap-4'>
                   <label htmlFor='title'>
                     Titulo
-                    <span className='text-red-500 font-bold text-2xl'>*</span>
+                    <span className='text-2xl font-bold text-red-500'>*</span>
                   </label>
                   <input
                     type='text'
@@ -104,208 +105,212 @@ const ProductsForm = () => {
                     onChange={(e) => {
                       setProduct({ ...product, title: e.target.value });
                     }}
-                    className='dark:text-white text-black h-10 p-3 rounded-lg w-full border border-gray-400 border-solid'
+                    className='w-full h-10 p-3 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                   />
                 </div>
               </div>
 
               <div className='flex w-full sm:w-1/2'>
-                <div className='w-full flex flex-col gap-4'>
+                <div className='flex flex-col w-full gap-4'>
                   <p>
                     <span>Tallas:</span>
                   </p>
 
-                  <div className='flex gap-4  justify-between w-full'>
-                    <label className='flex items-center gap-2'>
-                      <input
-                        type='checkbox'
-                        className='h-5 w-5'
-                        name='xs'
-                        checked={
-                          params.product
-                            ? sizesCovertes
-                                .toLowerCase()
-                                .split(',')
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('xs')
-                            : product.sizes
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('xs')
-                        }
-                        onChange={(e) => {
-                          const { name, checked } = e.target;
-                          if (checked) {
-                            if (!sizesCovertes.split(',').includes(name)) {
+                  <div className='flex flex-wrap w-full gap-4 sm:justify-start'>
+                    <div className='flex flex-col gap-3 sm:flex-row'>
+                      <label className='flex items-center gap-2'>
+                        <input
+                          type='checkbox'
+                          className='w-7 h-7'
+                          name='xs'
+                          checked={
+                            params.product
+                              ? sizesCovertes
+                                  .toLowerCase()
+                                  .split(',')
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('xs')
+                              : product.sizes
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('xs')
+                          }
+                          onChange={(e) => {
+                            const { name, checked } = e.target;
+                            if (checked) {
+                              if (!sizesCovertes.split(',').includes(name)) {
+                                setProduct({
+                                  ...product,
+                                  sizes: [...product.sizes, name],
+                                });
+                              }
+                            } else {
                               setProduct({
                                 ...product,
-                                sizes: [...product.sizes, name],
+                                sizes: sizesCovertes
+                                  .split(',')
+                                  .filter((size) => size !== name),
                               });
                             }
-                          } else {
-                            setProduct({
-                              ...product,
-                              sizes: sizesCovertes
-                                .split(',')
-                                .filter((size) => size !== name),
-                            });
+                          }}
+                        />
+                        <span>xs</span>
+                      </label>
+                      <label className='flex items-center gap-2'>
+                        <input
+                          type='checkbox'
+                          className='w-7 h-7'
+                          name='s'
+                          checked={
+                            params.product
+                              ? sizesCovertes
+                                  .toLowerCase()
+                                  .split(',')
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('s')
+                              : product.sizes
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('s')
                           }
-                        }}
-                      />
-                      <span>xs</span>
-                    </label>
-                    <label className='flex items-center gap-2'>
-                      <input
-                        type='checkbox'
-                        className='h-5 w-5'
-                        name='s'
-                        checked={
-                          params.product
-                            ? sizesCovertes
-                                .toLowerCase()
-                                .split(',')
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('s')
-                            : product.sizes
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('s')
-                        }
-                        onChange={(e) => {
-                          const { name, checked } = e.target;
-                          if (checked) {
-                            if (!sizesCovertes.split(',').includes(name)) {
+                          onChange={(e) => {
+                            const { name, checked } = e.target;
+                            if (checked) {
+                              if (!sizesCovertes.split(',').includes(name)) {
+                                setProduct({
+                                  ...product,
+                                  sizes: [...product.sizes, name],
+                                });
+                              }
+                            } else {
                               setProduct({
                                 ...product,
-                                sizes: [...product.sizes, name],
+                                sizes: sizesCovertes
+                                  .split(',')
+                                  .filter((size) => size !== name),
                               });
                             }
-                          } else {
-                            setProduct({
-                              ...product,
-                              sizes: sizesCovertes
-                                .split(',')
-                                .filter((size) => size !== name),
-                            });
+                          }}
+                        />
+                        <span>s</span>
+                      </label>
+                      <label className='flex items-center gap-2'>
+                        <input
+                          type='checkbox'
+                          className='w-7 h-7'
+                          name='m'
+                          checked={
+                            params.product
+                              ? sizesCovertes
+                                  .toLowerCase()
+                                  .split(',')
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('m')
+                              : product.sizes
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('m')
                           }
-                        }}
-                      />
-                      <span>s</span>
-                    </label>
-                    <label className='flex items-center gap-2'>
-                      <input
-                        type='checkbox'
-                        className='h-5 w-5'
-                        name='m'
-                        checked={
-                          params.product
-                            ? sizesCovertes
-                                .toLowerCase()
-                                .split(',')
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('m')
-                            : product.sizes
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('m')
-                        }
-                        onChange={(e) => {
-                          const { name, checked } = e.target;
-                          if (checked) {
-                            if (!sizesCovertes.split(',').includes(name)) {
+                          onChange={(e) => {
+                            const { name, checked } = e.target;
+                            if (checked) {
+                              if (!sizesCovertes.split(',').includes(name)) {
+                                setProduct({
+                                  ...product,
+                                  sizes: [...product.sizes, name],
+                                });
+                              }
+                            } else {
                               setProduct({
                                 ...product,
-                                sizes: [...product.sizes, name],
+                                sizes: sizesCovertes
+                                  .split(',')
+                                  .filter((size) => size !== name),
                               });
                             }
-                          } else {
-                            setProduct({
-                              ...product,
-                              sizes: sizesCovertes
-                                .split(',')
-                                .filter((size) => size !== name),
-                            });
+                          }}
+                        />
+                        <span>m</span>
+                      </label>
+                    </div>
+                    <div className='flex flex-col gap-3 sm:flex-row'>
+                      <label className='flex items-center gap-2'>
+                        <input
+                          type='checkbox'
+                          className='w-7 h-7'
+                          name='l'
+                          checked={
+                            params.product
+                              ? sizesCovertes
+                                  .toLowerCase()
+                                  .split(',')
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('l')
+                              : product.sizes
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('l')
                           }
-                        }}
-                      />
-                      <span>m</span>
-                    </label>
-                    <label className='flex items-center gap-2'>
-                      <input
-                        type='checkbox'
-                        className='h-5 w-5'
-                        name='l'
-                        checked={
-                          params.product
-                            ? sizesCovertes
-                                .toLowerCase()
-                                .split(',')
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('l')
-                            : product.sizes
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('l')
-                        }
-                        onChange={(e) => {
-                          const { name, checked } = e.target;
-                          if (checked) {
-                            if (!sizesCovertes.split(',').includes(name)) {
+                          onChange={(e) => {
+                            const { name, checked } = e.target;
+                            if (checked) {
+                              if (!sizesCovertes.split(',').includes(name)) {
+                                setProduct({
+                                  ...product,
+                                  sizes: [...product.sizes, name],
+                                });
+                              }
+                            } else {
                               setProduct({
                                 ...product,
-                                sizes: [...product.sizes, name],
+                                sizes: sizesCovertes
+                                  .split(',')
+                                  .filter((size) => size !== name),
                               });
                             }
-                          } else {
-                            setProduct({
-                              ...product,
-                              sizes: sizesCovertes
-                                .split(',')
-                                .filter((size) => size !== name),
-                            });
+                          }}
+                        />
+                        <span>l</span>
+                      </label>
+                      <label className='flex items-center gap-2'>
+                        <input
+                          type='checkbox'
+                          className='w-7 h-7'
+                          name='xl'
+                          checked={
+                            params.product
+                              ? sizesCovertes
+                                  .toLowerCase()
+                                  .split(',')
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('xl')
+                              : product.sizes
+                                  .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
+                                  .includes('xl')
                           }
-                        }}
-                      />
-                      <span>l</span>
-                    </label>
-                    <label className='flex items-center gap-2'>
-                      <input
-                        type='checkbox'
-                        className='h-5 w-5'
-                        name='xl'
-                        checked={
-                          params.product
-                            ? sizesCovertes
-                                .toLowerCase()
-                                .split(',')
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('xl')
-                            : product.sizes
-                                .map((size) => size.trim()) // Aplica trim() a cada elemento del arreglo
-                                .includes('xl')
-                        }
-                        onChange={(e) => {
-                          const { name, checked } = e.target;
-                          if (checked) {
-                            if (!sizesCovertes.split(',').includes(name)) {
+                          onChange={(e) => {
+                            const { name, checked } = e.target;
+                            if (checked) {
+                              if (!sizesCovertes.split(',').includes(name)) {
+                                setProduct({
+                                  ...product,
+                                  sizes: [...product.sizes, name],
+                                });
+                              }
+                            } else {
                               setProduct({
                                 ...product,
-                                sizes: [...product.sizes, name],
+                                sizes: sizesCovertes
+                                  .split(',')
+                                  .filter((size) => size !== name),
                               });
                             }
-                          } else {
-                            setProduct({
-                              ...product,
-                              sizes: sizesCovertes
-                                .split(',')
-                                .filter((size) => size !== name),
-                            });
-                          }
-                        }}
-                      />
-                      <span>xl</span>
-                    </label>
+                          }}
+                        />
+                        <span>xl</span>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className='flex gap-4 w-full sm:w-1/2'>
-                <div className='flex flex-col gap-4 w-full '>
+              <div className='flex w-full gap-4 sm:w-1/2'>
+                <div className='flex flex-col w-full gap-4 '>
                   <label htmlFor='category'>Categorias</label>
                   <select
                     name='category'
@@ -313,7 +318,7 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, category: e.target.value })
                     }
-                    className='dark:text-white text-black h-10 rounded-lg w-full border border-gray-400 border-solid'
+                    className='w-full h-10 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                   >
                     <option value='' disabled>
                       Selecciona una categoria
@@ -325,7 +330,7 @@ const ProductsForm = () => {
                     ))}
                   </select>
                 </div>
-                <div className='flex flex-col gap-4 w-full'>
+                <div className='flex flex-col w-full gap-4'>
                   <label htmlFor='collectionType'>Coleccion</label>
                   <select
                     name='collectionType'
@@ -333,7 +338,7 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, collectionType: e.target.value })
                     }
-                    className='dark:text-white text-black h-10 rounded-lg w-full border border-gray-400 border-solid'
+                    className='w-full h-10 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                   >
                     <option value='' disabled>
                       Selecciona una coleccion
@@ -346,7 +351,7 @@ const ProductsForm = () => {
                   </select>
                 </div>
               </div>
-              <div className='flex gap-4 w-full sm:w-1/2  flex-col'>
+              <div className='flex flex-col w-full gap-4 sm:w-1/2'>
                 <label htmlFor='available'>Disponible</label>
                 <div className='checkbox-wrapper-51'>
                   <input
@@ -379,8 +384,8 @@ const ProductsForm = () => {
                 <option value='Option 3'>Option 3</option>
               </select>
             </div> */}
-              <div className='flex gap-4 w-full sm:w-1/2'>
-                <div className='flex flex-col gap-4 w-full'>
+              <div className='flex w-full gap-4 sm:w-1/2'>
+                <div className='flex flex-col w-full gap-4'>
                   <label htmlFor='price'>Precio</label>
                   <input
                     type='number'
@@ -390,10 +395,10 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, price: e.target.value })
                     }
-                    className='dark:text-white text-black h-10 p-3 rounded-lg w-full border border-gray-400 border-solid'
+                    className='w-full h-10 p-3 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                   />
                 </div>
-                <div className='flex flex-col gap-4 w-full '>
+                <div className='flex flex-col w-full gap-4 '>
                   <label htmlFor='oldprice'>Precio antiguo</label>
                   <input
                     type='number'
@@ -403,12 +408,12 @@ const ProductsForm = () => {
                     onChange={(e) =>
                       setProduct({ ...product, oldprice: e.target.value })
                     }
-                    className='dark:text-white text-black h-10 p-3 rounded-lg w-full border border-gray-400 border-solid'
+                    className='w-full h-10 p-3 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                   />
                 </div>
               </div>
               <div className='flex w-full sm:w-1/2'>
-                <div className='flex flex-col gap-4 w-full'>
+                <div className='flex flex-col w-full gap-4'>
                   <label htmlFor='description'>Descripcion</label>
                   <textarea
                     name='description'
@@ -418,13 +423,13 @@ const ProductsForm = () => {
                       setProduct({ ...product, description: e.target.value })
                     }
                     rows={6}
-                    className='dark:text-white text-black p-3 rounded-lg w-full border border-gray-400 border-solid'
+                    className='w-full p-3 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                   />
                 </div>
               </div>
             </div>
-            <div className='flex flex-wrap w-full sm:w-1/2 my-10 m-auto justify-center items-center gap-4 py-6 rounded'>
-              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+            <div className='flex flex-wrap items-center justify-center w-full gap-4 py-6 m-auto my-10 rounded sm:w-1/2'>
+              <div className='flex flex-col gap-3 p-2 overflow-hidden text-white rounded-lg sm:w-2/5'>
                 <input
                   type='file'
                   className='w-full'
@@ -450,7 +455,7 @@ const ProductsForm = () => {
                   <img src={product.image?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='flex flex-col gap-3 p-2 overflow-hidden text-white rounded-lg sm:w-2/5'>
                 <input
                   type='file'
                   className='w-full '
@@ -476,7 +481,7 @@ const ProductsForm = () => {
                   <img src={product.image2?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='flex flex-col gap-3 p-2 overflow-hidden text-white rounded-lg sm:w-2/5'>
                 <input
                   type='file'
                   className='w-full '
@@ -502,7 +507,7 @@ const ProductsForm = () => {
                   <img src={product.image3?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='flex flex-col gap-3 p-2 overflow-hidden text-white rounded-lg sm:w-2/5'>
                 <input
                   type='file'
                   className='w-full '
@@ -528,7 +533,7 @@ const ProductsForm = () => {
                   <img src={product.image4?.url} alt='' className='h-72' />
                 )}
               </div>
-              <div className='sm:w-2/5  text-white rounded-lg overflow-hidden flex flex-col gap-3 p-2'>
+              <div className='flex flex-col gap-3 p-2 overflow-hidden text-white rounded-lg sm:w-2/5'>
                 <input
                   type='file'
                   className='w-full '
