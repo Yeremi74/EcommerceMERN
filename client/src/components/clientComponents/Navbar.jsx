@@ -219,17 +219,19 @@ const Navbar = () => {
             >
               colecciones
             </Link>
-            <Link
-              to='/admin/products'
-              className='font-bold text-gray-600 uppercase cursor-pointer hover:text-black h-fit'
-              onClick={() => {
-                setIsScrollDisabled(false);
-                setActiveMobileMenu(false);
-                setShowMenu(false);
-              }}
-            >
-              admin
-            </Link>
+            {user?.rol === 'admin' && (
+              <Link
+                to='/admin/products'
+                className='font-bold text-gray-600 uppercase cursor-pointer hover:text-black h-fit'
+                onClick={() => {
+                  setIsScrollDisabled(false);
+                  setActiveMobileMenu(false);
+                  setShowMenu(false);
+                }}
+              >
+                admin
+              </Link>
+            )}
           </section>
         </div>
       </div>
