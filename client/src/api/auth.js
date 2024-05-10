@@ -8,7 +8,9 @@ export const loginRequest = (user) => axios.post(`/login`, user);
 
 export const verifyTokenRequest = () => axios.get('/verify');
 
-export const getUsersRequest = () => axios.get('/users');
+export const getUsersRequest = async () => {
+  return await axios.get('/users');
+};
 
 export const getUniqueRequest = (id) => axios.get(`/users/${id}`);
 

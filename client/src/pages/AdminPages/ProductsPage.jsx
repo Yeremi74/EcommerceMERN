@@ -11,18 +11,8 @@ const ProductsPage = () => {
   const [sort, setSort] = useState(-1);
   const [data, setData] = useState([]);
 
-  const {
-    // collections,
-    getCollections,
-    // category,
-    getCategory,
-    filterProduct,
-    getUsers,
-    estado,
-    setEstado,
-  } = useEcommerceContext();
-
-  const dataContext = useEcommerceContext();
+  const { getCollections, getCategory, filterProduct, getUsers, setEstado } =
+    useEcommerceContext();
 
   // console.log(dataContext[params.id.toLowerCase()]);
   useEffect(() => {
@@ -42,7 +32,6 @@ const ProductsPage = () => {
       if (params.id === 'Category') {
         const res = await getCategory();
         setData(res);
-
         return;
       }
       if (params.id === 'Users') {

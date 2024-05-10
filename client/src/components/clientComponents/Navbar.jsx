@@ -47,9 +47,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsHoveringCollections(false);
-    console.log(user?.rol);
   }, []);
-  const dispatch = useDispatch();
 
   return (
     <nav className='h-20 -mt-1 bg-white'>

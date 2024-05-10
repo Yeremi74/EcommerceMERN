@@ -41,7 +41,6 @@ export const ContextProvider = ({ children }) => {
   const [searchState, setSearchState] = useState(false);
 
   const [showMenu, setShowMenu] = useState(false);
-  const [loading, setLoading] = useState(false);
   // !
 
   const getProducts = async () => {
@@ -98,11 +97,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const filterProduct = async (cat, collec, sort) => {
-    // console.log(cat);
-    // console.log(collec);
-    // console.log(sort);
     const res = await filterRequest(cat, collec, sort);
-    // console.log(res);
     setProducts(res.data);
     return res.data;
   };

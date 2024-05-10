@@ -47,8 +47,8 @@ function App() {
                     path='/admin/create/:id/:product'
                     element={<PostForm />}
                   />
-                  <Route path='*' element={<NotFound />} />
                 </Route>
+                <Route path='*' element={<NotFound />} />
               </Routes>
               <Toaster />
             </ContextProvider>

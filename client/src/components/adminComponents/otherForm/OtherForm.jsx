@@ -47,7 +47,6 @@ const OtherForm = () => {
       if (params.id === 'Users') {
         const user = await getUser(params.product);
         setProduct(user);
-        getUsers();
       } else if (params.product) {
         const product = await getUniqueProduct(params.id, params.product);
         setProduct(product.data);
@@ -63,13 +62,9 @@ const OtherForm = () => {
 
       setLoading(true);
       if (params.id == 'Users') {
-        getUsers();
-
         await updateUser(params.product, {
           ...product,
         });
-
-        getUsers();
       } else if (params.product) {
         await updateProduct(params.id, params.product, {
           ...product,
@@ -79,7 +74,6 @@ const OtherForm = () => {
       }
 
       navigate(`/admin/${params.id}`);
-      getUsers();
     } catch (error) {
       console.log(error);
     } finally {

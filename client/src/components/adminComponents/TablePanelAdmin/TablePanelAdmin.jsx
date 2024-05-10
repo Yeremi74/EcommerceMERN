@@ -40,6 +40,7 @@ const TablePanelAdmin = ({
     }
     setSort(-1);
   };
+
   return (
     <div className='min-h-screen'>
       <table className='w-full'>
@@ -80,7 +81,7 @@ const TablePanelAdmin = ({
 };
 
 TablePanelAdmin.propTypes = {
-  data: PropTypes.array.isRequired,
+  // data: PropTypes.array.isRequired,
 };
 
 export default TablePanelAdmin;

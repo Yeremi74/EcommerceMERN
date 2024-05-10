@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import DraggableCard from './DraggableCard';
@@ -16,10 +14,10 @@ const DraggableCarrousel = () => {
   }, []);
 
   return (
-    <div className='flex items-center w-full flex-col'>
+    <div className='flex flex-col items-center w-full'>
       <div className='w-full'>
         <motion.div
-          className='w-full overflow-hidden flex '
+          className='flex w-full overflow-hidden '
           ref={slider_wrapper}
           whileTap={{ cursor: 'grabbing' }}
         >
@@ -41,10 +39,6 @@ const DraggableCarrousel = () => {
       </div>
     </div>
   );
-};
-
-DraggableCarrousel.propTypes = {
-  size: PropTypes.string.isRequired,
 };
 
 export default DraggableCarrousel;

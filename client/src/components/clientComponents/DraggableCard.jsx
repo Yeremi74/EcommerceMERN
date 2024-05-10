@@ -33,14 +33,14 @@ const DraggableCard = ({ img }) => {
         >
           <img
             src={img}
-            className='w-full h-full object-cover block pointer-events-none'
+            className='block object-cover w-full h-full pointer-events-none'
           />
         </div>
       </div>
-      <div className='absolute h-full w-full z-10 top-0 cursor-move'>
+      <div className='absolute top-0 z-10 w-full h-full cursor-move'>
         {isHovered && (
           <button
-            className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-white border h-8 w-16 text-white font-bold uppercase pointer-events-auto hover:bg-slate-600 hover:bg-opacity-50 cursor-pointer'
+            className='absolute w-16 h-8 font-bold text-white uppercase transform -translate-x-1/2 -translate-y-1/2 border border-white cursor-pointer pointer-events-auto top-1/2 left-1/2 hover:bg-slate-600 hover:bg-opacity-50'
             onClick={handleClick}
           >
             shop
@@ -52,7 +52,6 @@ const DraggableCard = ({ img }) => {
 };
 
 DraggableCard.propTypes = {
-  size: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
 };
 
