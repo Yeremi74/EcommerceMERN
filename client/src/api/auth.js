@@ -1,6 +1,6 @@
 import axios from './axios.js';
 
-// const API = 'https://backend-ecommercemern.onrender.com';
+// const API = 'https://backend-ecommercemern.onrender.com/api';
 
 export const registerRequest = (user) => axios.post(`/register`, user);
 
