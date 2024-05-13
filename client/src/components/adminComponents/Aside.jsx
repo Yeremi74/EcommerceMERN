@@ -12,7 +12,6 @@ import {
   Moon,
 } from 'lucide-react';
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
 const Aside = () => {
   const params = useParams();
   useEffect(() => {
@@ -20,8 +19,6 @@ const Aside = () => {
   }, [params.id]);
 
   const [selected, setSelected] = useState('');
-  const { user, isAuthenticated, loading } = useAuth();
-  console.log(user.rol);
   return (
     <NavbarAdmin>
       <SideBarItem
@@ -39,15 +36,16 @@ const Aside = () => {
         selected={selected}
       />
       <SideBarItem
-        icon={<BarChart3 size={20} />}
+        icon={<Receipt size={20} />}
         text='colecciones'
         url='/admin/Collections'
         setSelected={setSelected}
         selected={selected}
       />
       <SideBarItem
-        icon={<Receipt size={20} />}
-        text='billings'
+        icon={<BarChart3 size={20} />}
+        url='/admin/graficos'
+        text='Estadisticas'
         setSelected={setSelected}
         selected={selected}
       />

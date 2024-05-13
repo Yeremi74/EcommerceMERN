@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import TablePanelAdmin from '../../components/adminComponents/TablePanelAdmin/TablePanelAdmin';
 
 import Aside from '../../components/adminComponents/Aside';
+import Chart from './Chart';
 const ProductsPage = () => {
   const params = useParams();
   const [categoryOption, setCategory] = useState('all');
@@ -44,7 +45,20 @@ const ProductsPage = () => {
     asyncFunc();
   }, [params.id, params, categoryOption, collection, sort]);
 
-  // console.log(darkMode);
+  if (params.id === 'graficos')
+    return (
+      <div className='flex'>
+        <Aside />
+        <div className='flex w-full'>
+          <div className='w-20 sm:w-16'></div>
+          <div className='w-full p-2 m-auto my-0 text-black rounded-md dark:text-white sm:p-6 '>
+            <h1>
+              <Chart />
+            </h1>
+          </div>
+        </div>
+      </div>
+    );
   return (
     <div className='flex'>
       <Aside />

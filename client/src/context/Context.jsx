@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import {
   createRequest,
   deleteRequest,
@@ -16,6 +16,7 @@ import {
   getUsersRequest,
   updateUserRequest,
 } from '../api/auth';
+import { useLocation } from 'react-router-dom';
 
 const context = createContext();
 
@@ -23,8 +24,8 @@ export const useEcommerceContext = () => {
   const contexto = useContext(context);
   return contexto;
 };
-
 export const ContextProvider = ({ children }) => {
+  const location = useLocation();
   const [products, setProducts] = useState([]);
   const [collections, setCollections] = useState([]);
   const [category, setCategory] = useState([]);
@@ -41,6 +42,16 @@ export const ContextProvider = ({ children }) => {
   const [searchState, setSearchState] = useState(false);
 
   const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    setIsScrollDisabled(false);
+    setSearchState(false);
+    setShowMenu(false);
+    console.log(location.pathname);
+    document.body.style.overflow = 'auto';
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   // !
 
   const getProducts = async () => {

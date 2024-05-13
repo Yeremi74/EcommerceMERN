@@ -17,6 +17,7 @@ import RegisterPage from './pages/ClientPages/RegisterPage';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoutes from './pages/ClientPages/ProtectedRoutes';
 import { CartProvider } from './context/CartContex';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
                 <Route path='*' element={<NotFound />} />
               </Routes>
               <Toaster />
+              <Footer />
             </ContextProvider>
           </BrowserRouter>
         </AuthProvider>

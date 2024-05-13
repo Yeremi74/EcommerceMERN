@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CollectionMenu from './CollectionMenu';
 import Search from './Search';
 import { useEcommerceContext } from '../../context/Context';
@@ -13,6 +13,8 @@ import { removeItem, resetCart } from '../../redux/cartReducer';
 import CartArticle from './CartArticle';
 
 const Navbar = () => {
+  const location = useLocation();
+
   const {
     isScrollDisabled,
     setIsScrollDisabled,
@@ -47,7 +49,18 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsHoveringCollections(false);
+    setIsScrollDisabled(false);
+    setSearchState(false);
+    setShowMenu(false);
   }, []);
+  // useEffect(() => {
+  //   setIsScrollDisabled(false);
+  //   setSearchState(false);
+  //   setShowMenu(false);
+  //   console.log(location.pathname);
+
+  //   document.body.style.overflow = 'auto';
+  // }, [location.pathname]);
 
   return (
     <nav className='h-20 -mt-1 bg-white'>
