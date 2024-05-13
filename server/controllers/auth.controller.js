@@ -57,14 +57,7 @@ export const login = async (req, res) => {
 
     const token = await createAccessToken({ id: userFound._id });
 
-    res.cookie('token', token, {
-      sameSite: 'none', // Establece SameSite como None
-      secure: true, // Debe establecerse como true si SameSite es None y estás usando HTTPS
-      httpOnly: true, // Permite que la cookie solo sea accesible a través de HTTP
-      maxAge: 31536000, // Define la duración de la cookie en milisegundos (1 hora en este caso)
-      // domain: 'example.com', // Especifica el dominio al que pertenece la cookie
-      // path: '/', // Establece la ruta para la cual la cookie es válida
-    });
+    res.cookie('token', token);
 
     res.json({
       id: userFound._id,
