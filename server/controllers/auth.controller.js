@@ -25,8 +25,8 @@ export const register = async (req, res) => {
     const token = await createAccessToken({ id: userSaved._id });
 
     res.cookie('token', token, {
-      sameSite: 'none', // Establece SameSite como None
-      secure: true, // Debe establecerse como true si SameSite es None y estás usando HTTPS
+      // sameSite: 'none', // Establece SameSite como None
+      // secure: true, // Debe establecerse como true si SameSite es None y estás usando HTTPS
     });
 
     res.json({
@@ -58,8 +58,8 @@ export const login = async (req, res) => {
     const token = await createAccessToken({ id: userFound._id });
 
     res.cookie('token', token, {
-      sameSite: 'none', // Establece SameSite como None
-      secure: true, // Debe establecerse como true si SameSite es None y estás usando HTTPS
+      // sameSite: 'none', // Establece SameSite como None
+      // secure: true, // Debe establecerse como true si SameSite es None y estás usando HTTPS
     });
 
     res.json({
