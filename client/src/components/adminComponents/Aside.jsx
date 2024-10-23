@@ -66,12 +66,12 @@ const Aside = () => {
         setSelected={setSelected}
         selected={selected}
       /> */}
-      <SideBarItem
+      {/* <SideBarItem
         icon={<Moon size={20} />}
         text='darkMode'
         setSelected={setSelected}
         selected={selected}
-      />
+      /> */}
     </NavbarAdmin>
   );
 };
