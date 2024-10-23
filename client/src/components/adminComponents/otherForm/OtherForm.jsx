@@ -65,12 +65,15 @@ const OtherForm = () => {
         await updateUser(params.product, {
           ...product,
         });
+        console.log(product);
       } else if (params.product) {
         await updateProduct(params.id, params.product, {
           ...product,
         });
+        console.log(product);
       } else {
         createProduct(product, params.id);
+        console.log(product);
       }
 
       navigate(`/admin/${params.id}`);
@@ -98,11 +101,10 @@ const OtherForm = () => {
                   type='text'
                   name='title'
                   placeholder='Titulo'
-                  value={product.username || product.title || ''}
+                  value={product.title || ''}
                   onChange={(e) => {
-                    params.id
-                      ? setProduct({ ...product, username: e.target.value })
-                      : setProduct({ ...product, title: e.target.value });
+                    params.id;
+                    setProduct({ ...product, title: e.target.value });
                   }}
                   className='w-full h-10 p-3 text-black border border-gray-400 border-solid rounded-lg dark:text-white'
                 />

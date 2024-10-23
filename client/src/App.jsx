@@ -15,7 +15,6 @@ import './App.css';
 import LoginPage from './pages/ClientPages/LoginPage';
 import RegisterPage from './pages/ClientPages/RegisterPage';
 import { AuthProvider } from './context/AuthContext';
-import ProtectedRoutes from './pages/ClientPages/ProtectedRoutes';
 import { CartProvider } from './context/CartContex';
 import Footer from './components/Footer';
 
@@ -40,15 +39,13 @@ function App() {
                 />
                 <Route path='/collections' element={<CollectionPages />} />
 
-                <Route element={<ProtectedRoutes />}>
-                  <Route path='/admin' element={<AdminPage />} />
-                  <Route path='/admin/:id' element={<ProductsPage />} />
-                  <Route path='/admin/create/:id' element={<PostForm />} />
-                  <Route
-                    path='/admin/create/:id/:product'
-                    element={<PostForm />}
-                  />
-                </Route>
+                <Route path='/admin' element={<AdminPage />} />
+                <Route path='/admin/:id' element={<ProductsPage />} />
+                <Route path='/admin/create/:id' element={<PostForm />} />
+                <Route
+                  path='/admin/create/:id/:product'
+                  element={<PostForm />}
+                />
                 <Route path='*' element={<NotFound />} />
               </Routes>
               <Toaster />

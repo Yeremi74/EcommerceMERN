@@ -1,20 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CollectionMenu from './CollectionMenu';
 import Search from './Search';
 import { useEcommerceContext } from '../../context/Context';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FaSearch, FaRegTrashAlt } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContex';
-import { useDispatch } from 'react-redux';
-import { removeItem, resetCart } from '../../redux/cartReducer';
 import CartArticle from './CartArticle';
 
 const Navbar = () => {
-  const location = useLocation();
-
   const {
     isScrollDisabled,
     setIsScrollDisabled,
@@ -79,10 +75,10 @@ const Navbar = () => {
 
           <div className='items-center hidden w-full h-full gap-3 sm:flex'>
             <Link
-              to='/login'
+              to='/admin/products'
               className='font-bold text-gray-600 uppercase cursor-pointer hover:text-black'
             >
-              login
+              admin
             </Link>
             <Link
               to='/catalog/*'
