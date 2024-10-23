@@ -51,12 +51,12 @@ const Aside = () => {
       />
       <hr className='my-3' />
       {/* <SideBarItem icon={<Settings size={20} />} text='settings' /> */}
-      <SideBarItem
+      {/* <SideBarItem
         icon={<Package size={20} />}
         text='orders'
         setSelected={setSelected}
         selected={selected}
-      />
+      /> */}
       {/* <SideBarItem icon={<LifeBuoy size={20} />} text='help' /> */}
       <hr className='my-3' />
       {/* <SideBarItem
