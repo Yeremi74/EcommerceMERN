@@ -59,13 +59,13 @@ const Aside = () => {
       />
       {/* <SideBarItem icon={<LifeBuoy size={20} />} text='help' /> */}
       <hr className='my-3' />
-      <SideBarItem
+      {/* <SideBarItem
         icon={<UserCircle size={20} />}
         text='users'
         url='/admin/Users'
         setSelected={setSelected}
         selected={selected}
-      />
+      /> */}
       <SideBarItem
         icon={<Moon size={20} />}
         text='darkMode'
